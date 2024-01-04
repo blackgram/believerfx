@@ -22,7 +22,7 @@ const Hero = () => {
             Trade Cryptocurrencies, Stock Indexes, Commodities, and Foreign
             Exchange with a single platform
           </div>
-          <Link>
+          <Link href="/">
             <div className="text-black font-bold flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary leading-7 ">
               <div>Start Trading</div>
               <div>

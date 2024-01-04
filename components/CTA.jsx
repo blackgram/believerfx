@@ -39,7 +39,7 @@ const CTA = () => {
             Technical vs Fundamental Analysis
           </div>
         </div>
-        <Link>
+        <Link href="/">
           <div className="mt-7 text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-secondary w-[150px] font-medium ">
             <div>Sign Up Now</div>
             <div>

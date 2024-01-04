@@ -21,7 +21,7 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
-        <Link>
+        <Link href='/'>
           <div className="text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary ">
             <div>Sign Up</div>
             <div>
