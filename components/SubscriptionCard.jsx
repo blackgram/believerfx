@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaArrowRight } from "react-icons/fa";
+import Link from 'next/link';
 
 
 const SubscriptionCard = (props) => {
@@ -40,14 +41,14 @@ const SubscriptionCard = (props) => {
             <div />
           </div>
         </div>
-        <a>
+        <Link>
           <div className="mb-4 text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-secondary w-[150px] font-medium ">
             <div className='font-bold'>Sign Up Now</div>
             <div>
               <FaArrowRight size={"12px"} />
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   )

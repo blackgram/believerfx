@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -8,37 +9,37 @@ const Footer = () => {
       <div className="flex flex-col gap-2">
         <div className="text-white text-[20px] font-bold mb-2">Quick Links</div>
         <div>
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
         </div>
         <div>
-          <a href="/">Sign Up</a>
+          <Link href="/">Sign Up</Link>
         </div>
         <div>
-          <a href="/">Login</a>
+          <Link href="/">Login</Link>
         </div>
         <div>
-          <a href="/">Support</a>
+          <Link href="/">Support</Link>
         </div>
         <div>
-          <a href="/">FAQ</a>
+          <Link href="/">FAQ</Link>
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <div className="text-white text-[20px] font-bold mb-2">Company</div>
         <div>
-          <a href="/">About Us</a>
+          <Link href="/">About Us</Link>
         </div>
         <div>
-          <a href="/">Careers</a>
+          <Link href="/">Careers</Link>
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <div className="text-white text-[20px] font-bold mb-2">Contact Us</div>
         <div>
-          <a href="/">help@beleiversfx.com</a>
+          <Link href="/">help@beleiversfx.com</Link>
         </div>
         <div>
-          <a href="/">+44 1234567</a>
+          <Link href="/">+44 1234567</Link>
         </div>
       </div>
 
@@ -48,7 +49,7 @@ const Footer = () => {
         <span className="font-bold">RISK WARNING: </span>
         The Financial Products offered by the company include Contracts for
         Difference ('CFDs') and other complex financial products. Trading CFDs
-        carries a high level of risk since leverage can work both to your
+        carries high level of risk since leverage can work both to your
         advantage and disadvantage. As a result, CFDs may not be suitable for
         all investors because it is possible to lose all of your invested
         capital. You should never invest money that you cannot afford to lose.
@@ -61,19 +62,19 @@ const Footer = () => {
       <div className="flex flex-col items-center justify-center gap-4 py-5">
         <div className="flex items-center justify-center gap-4 text-white">
           <div className="bg-nb3 rounded-lg w-[36px] h-[36px] flex items-center justify-center">
-            <a href="/">
+            <Link href="/">
               <FaFacebookF size={20} />
-            </a>
+            </Link>
           </div>
           <div className="bg-nb3 rounded-lg w-[36px] h-[36px] flex items-center justify-center">
-            <a href="/">
+            <Link href="/">
               <FaInstagram size={20} />
-            </a>
+            </Link>
           </div>
           <div className="bg-nb3 rounded-lg w-[36px] h-[36px] flex items-center justify-center">
-            <a href="/">
+            <Link href="/">
               <FaXTwitter size={20} />
-            </a>
+            </Link>
           </div>
         </div>
         <div>Copyright @2024 Believers FX Profit</div>

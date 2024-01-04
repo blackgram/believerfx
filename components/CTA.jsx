@@ -3,6 +3,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 import ctaImg from '../assets/trade_on.png'
+import Link from "next/link";
 
 const CTA = () => {
   return (
@@ -38,14 +39,14 @@ const CTA = () => {
             Technical vs Fundamental Analysis
           </div>
         </div>
-        <a>
+        <Link>
           <div className="mt-7 text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-secondary w-[150px] font-medium ">
             <div>Sign Up Now</div>
             <div>
               <FaArrowRight size={"12px"} />
             </div>
           </div>
-        </a>
+        </Link>
       </div>
       <Image src={ctaImg} width={350} height={350} className="p-4 mt-4"/>
     </div>

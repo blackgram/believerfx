@@ -1,6 +1,7 @@
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -10,7 +11,7 @@ const Navbar = () => {
       </div>
       <div className="flex items-center justify-center gap-2">
         <div className="">
-          <a
+          <Link
             href="/"
             className="no-underline flex items-center justify-center text-white gap-1"
           >
@@ -18,16 +19,16 @@ const Navbar = () => {
             <div>
               <FaArrowRight size={"12px"} className="text-white" />
             </div>
-          </a>
+          </Link>
         </div>
-        <a>
+        <Link>
           <div className="text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary ">
             <div>Sign Up</div>
             <div>
               <FaArrowRight size={"12px"} />
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

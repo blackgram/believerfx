@@ -5,6 +5,8 @@ import heroImage from "../assets/hero_thumb.png";
 import { TbTools } from "react-icons/tb";
 import { FaFastForward } from "react-icons/fa";
 import { GiProfit } from "react-icons/gi";
+import Link from "next/link";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -21,14 +23,14 @@ const Hero = () => {
             Trade Cryptocurrencies, Stock Indexes, Commodities, and Foreign
             Exchange with a single platform
           </div>
-          <a>
+          <Link>
             <div className="text-black font-bold flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary leading-7 ">
               <div>Start Trading</div>
               <div>
                 <FaArrowTrendUp />
               </div>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="py-5 px-2">
           <Image src={heroImage} width={800} height={800} alt="" />
