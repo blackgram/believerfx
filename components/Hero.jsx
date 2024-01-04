@@ -6,7 +6,6 @@ import { TbTools } from "react-icons/tb";
 import { FaFastForward } from "react-icons/fa";
 import { GiProfit } from "react-icons/gi";
 import Link from "next/link";
-import Link from "next/link";
 
 const Hero = () => {
   return (

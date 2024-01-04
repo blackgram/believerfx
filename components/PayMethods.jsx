@@ -10,9 +10,9 @@ const PayMethods = () => {
         <div className='font-bold text-[24px]'>WE ACCEPT</div>
         <div>Payment methods for deposit and withdrawals</div>
         <div className='flex flex-wrap'>
-            <Image src={btc} height={125} width={320}  />
-            <Image src={ltc} height={125} width={320}  />
-            <Image src={eth} height={125} width={320}  />
+            <Image src={btc} height={125} width={320} alt='bitcoin' />
+            <Image src={ltc} height={125} width={320}  alt='litecoin'/>
+            <Image src={eth} height={125} width={320}  alt='ethereum'/>
         </div>
     </div>
   )

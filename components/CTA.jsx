@@ -48,7 +48,7 @@ const CTA = () => {
           </div>
         </Link>
       </div>
-      <Image src={ctaImg} width={350} height={350} className="p-4 mt-4"/>
+      <Image src={ctaImg} alt="call to action image" width={350} height={350} className="p-4 mt-4"/>
     </div>
   );
 };

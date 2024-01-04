@@ -48,7 +48,7 @@ const Footer = () => {
       <div className="text-justify text-[12px] max-w-[21rem]">
         <span className="font-bold">RISK WARNING: </span>
         The Financial Products offered by the company include Contracts for
-        Difference ('CFDs') and other complex financial products. Trading CFDs
+        Difference (&apos;CFDs&apos;) and other complex financial products. Trading CFDs
         carries high level of risk since leverage can work both to your
         advantage and disadvantage. As a result, CFDs may not be suitable for
         all investors because it is possible to lose all of your invested

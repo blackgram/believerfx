@@ -44,7 +44,7 @@ const HowSection = () => {
         </div>
       </div>
       <div className="px-4 pt-6">
-      <Image src={ladypic} width={200} height={200} />
+      <Image src={ladypic} width={200} height={200} alt="" />
       </div>
     </div>
   );
