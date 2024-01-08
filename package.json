@@ -13,7 +13,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "tradingview-widget": "^0.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

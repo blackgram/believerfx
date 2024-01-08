@@ -1,9 +1,10 @@
-import {CTA, Hero, HowSection, Provide, Navbar, Testimonials, PlanSection, PayMethods, Footer} from '../components'
+import TradingViewTickerTape from '@/components/TradingViewTickerTape'
+import {CTA, Hero, Header, HowSection, Provide, Navbar, Testimonials, PlanSection, PayMethods, Footer} from '../components'
 
 const Home = () => {
   return (
     <div className='font-poppins'>
-      <Navbar />
+      <Header />
       <Hero />
       <HowSection />
       <Provide />
@@ -12,6 +13,7 @@ const Home = () => {
       <PlanSection />
       <PayMethods />
       <Footer />
+      <TradingViewTickerTape />
     </div>
   )
 }

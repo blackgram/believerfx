@@ -6,7 +6,7 @@ import eth from '../assets/ethereum.png'
 
 const PayMethods = () => {
   return (
-    <div className='bg-[url("../assets/slider1.jpg")] bg-cover bg-fixed bg-center bg-no-repeat text-white flex flex-col items-center justify-center p-4 pt-7'>
+    <div className='bg-[url("../assets/slider1.jpg")] bg-cover bg-fixed bg-center bg-no-repeat text-white flex flex-col items-center justify-center p-4 pt-7 lg:min-h-[50vh] lg:pb-6'>
         <div className='font-bold text-[24px]'>WE ACCEPT</div>
         <div>Payment methods for deposit and withdrawals</div>
         <div className='flex flex-wrap'>

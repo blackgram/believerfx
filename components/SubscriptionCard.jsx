@@ -6,7 +6,7 @@ import Link from 'next/link';
 const SubscriptionCard = (props) => {
   return (
     <div className='mb-5'>
-      <div className="w-[21rem] bg-nb3 flex flex-col rounded-b-lg items-center justify-center">
+      <div className="w-[21rem] lg:w-[19rem] xl:w-[24rem] bg-nb3 flex flex-col rounded-b-lg items-center justify-center">
         <div className="bg-secondary flex flex-col text-white items-center justify-center rounded-t-lg h-[100px] w-full">
           <div className="font-bold text-[24px]">{props.name}</div>
           <div className="bg-black h-[2px] w-[10px]" />
@@ -14,11 +14,11 @@ const SubscriptionCard = (props) => {
         </div>
         <div className="bg-nb3 text-white w-full flex flex-col items-center justify-center p-7 gap-3">
           <div>DAILY RETURN</div>
-          <div className="bg-secondary h-[2px] w-[300px]" />
+          <div className="bg-secondary h-[2px] w-[15rem]" />
           <div>Compounding Total of {props.ct}</div>
-          <div className="bg-secondary h-[2px] w-[300px]" />
+          <div className="bg-secondary h-[2px] w-[15rem]" />
           <div>HASHING FOR {props.hashing} DAYS</div>
-          <div className="bg-secondary h-[2px] w-[300px]" />
+          <div className="bg-secondary h-[2px] w-[15rem]" />
         </div>
         <div className="w-full flex justify-between p-4 text-white">
           <div className="flex flex-col items-center justify-center">
