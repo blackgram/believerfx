@@ -9,7 +9,7 @@ import sun from '../assets/sun.png'
 
 const HowSection = () => {
   return (
-    <div className="w-full bg-secondary flex flex-col items-center justify-center px-2 pt-2 relative">
+    <div className="w-full h-full bg-secondary flex flex-col items-center justify-center px-2 pt-2 relative">
       <div className="text-headtext text-[36px] font-bold pt-7">
         How it Works
       </div>
@@ -48,12 +48,12 @@ const HowSection = () => {
           </div>
         </div>
 
-        <div className="px-4 pt-6 max-w-[210px] max-h-[210px] md:px-2 md:max-w-full md md:pt-0 md:max-h-full lg:max-w-[35vw]  ">
+        <div className="px-0 pt-6  max-w-[210px] md:px-2 md:max-w-full md md:pt-0 md:max-h-full lg:max-w-[35vw]  ">
           <Image src={ladypic} sizes="100vw" alt="" />
         </div>
       </div>
-      <Image src={sun} width={100} height={100} className="absolute top-20 left-20 push_animat" />
-      <Image src={star} width={100} height={100} className="absolute top-40 right-40 previewSkew"/>
+      <Image src={sun} width={100} height={100} className="hidden md:absolute top-20 left-20 push_animat" />
+      <Image src={star} width={100} height={100} className="hidden md:absolute top-40 right-40 previewSkew"/>
     </div>
   );
 };

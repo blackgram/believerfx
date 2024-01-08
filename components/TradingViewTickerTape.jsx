@@ -31,7 +31,7 @@ const TradingViewTickerTape = () => {
   }, []);
 
   return (
-    <div id="tradingview-widget-script-container" className="tradingview-widget-container fixed bottom-0">
+    <div id="tradingview-widget-script-container" className="tradingview-widget-container fixed bottom-0 max-w-[100vw]">
       <div className="tradingview-widget-container__widget"></div>
     </div>
   );

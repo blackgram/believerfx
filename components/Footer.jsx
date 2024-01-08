@@ -6,7 +6,7 @@ import CTA2 from "./CTA2";
 
 const Footer = () => {
   return (
-    <div className="text-ash bg-black flex flex-wrap flex-col gap-4 justify-center items-center p-4 lg:pt-[10rem] relative mb-5 ">
+    <div className="text-ash bg-black flex flex-col gap-4 justify-center items-center p-4 lg:pt-[10rem] relative mb-5  ">
       <CTA2 />
       <div className="md:flex md:w-full md:items-start md:justify-evenly lg:gap-8 ">
         <div className="flex flex-col gap-2  ">
