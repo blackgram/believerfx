@@ -71,7 +71,7 @@ const NavbarLg = () => {
               </div>
             </Link>
           </div>
-          <Link href="/">
+          <Link href="/SignUp">
             <div className="text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary transition-all duration-500 ease-in-out close hover:bg-secondary  ">
               <div>Sign Up</div>
               <div>

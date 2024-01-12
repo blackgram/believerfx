@@ -67,7 +67,7 @@ const Navbar = () => {
       <div className="flex items-center justify-center gap-2">
         <div className="">
           <Link
-            href="/"
+            href="/Login"
             className="no-underline flex items-center justify-center text-white gap-1"
           >
             <div>Login</div>
@@ -76,7 +76,7 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
-        <Link href="/">
+        <Link href="/SignUp">
           <div className="text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary ">
             <div>Sign Up</div>
             <div>
