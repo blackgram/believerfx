@@ -17,7 +17,7 @@ const CTA2 = () => {
           </div>
           <div className="text-[18px] ">guranteed profits within 14 days</div>
         </div>
-        <Link href="/">
+        <Link href="/SignUp">
           <div className=" text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-secondary w-[150px] lg:p-4 lg:h-[60px] lg:text-[20px] font-medium transition-all transition-transform duration-500 ease-in-out hover:bg-primary hover:scale-105 ">
             <div>Register</div>
             <div className="lg:text-[24px]">

@@ -39,7 +39,7 @@ const NavbarLg = () => {
 
   return (
     <div className="flex items-center justify-evenly z-50">
-      <div className={` ${ isScrolled? 'fixed top-0 w-full h-[5rem] ' : 'absolute top-[2rem] h-[90px] w-[58rem]'} transition-transform duration-500 ease-in-out bg-black flex justify-between items-center px-2 py-4 font-poppins text-[18px] font-bold`}>
+      <div className={` ${ isScrolled? 'fixed top-0 w-full h-[5rem] ' : 'absolute top-[2rem] h-[70px] w-[58rem]'} transition-transform duration-500 ease-in-out bg-black flex justify-between items-center px-2 py-4 font-poppins text-[18px] font-medium`}>
         <div>
           <div className="font-bold text-[40px] text-primary p-4">
             B<span className="italic text-secondary text-[40px]">fx</span>

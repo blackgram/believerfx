@@ -41,7 +41,7 @@ const SubscriptionCard = (props) => {
             <div />
           </div>
         </div>
-        <Link href=''>
+        <Link href='/SignUp'>
           <div className="mb-4 text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-secondary w-[150px] font-medium ">
             <div className='font-bold'>Sign Up Now</div>
             <div>
