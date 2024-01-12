@@ -16,6 +16,7 @@ const Login = () => {
         src={star}
         width={100}
         height={100}
+        alt=""
         className="hidden md:block md:absolute top-40 left-10 previewSkew z-100"
       />
       <div className="bg-black flex flex-col justify-center items-center min-h-[70vh] md:min-h-[100vh] md:w-full">
@@ -71,7 +72,7 @@ const Login = () => {
           </Link>
         </div>
         <div className="text-ash p-4 pb-6">
-          Don't have an account?{" "}
+          Don't have an account?
           <span className="text-primary">
             <Link href="/SignUp">Register Here</Link>
           </span>
