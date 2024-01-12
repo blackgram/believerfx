@@ -62,7 +62,7 @@ const NavbarLg = () => {
         <div className="flex items-center justify-center gap-2 p-4">
           <div className="">
             <Link
-              href="/"
+              href="/Login"
               className="no-underline flex items-center justify-center text-white gap-1"
             >
               <div>Login</div>
