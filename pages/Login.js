@@ -72,7 +72,7 @@ const Login = () => {
           </Link>
         </div>
         <div className="text-ash p-4 pb-6">
-          Don't have an account?
+          Don&apos;t have an account?
           <span className="text-primary">
             <Link href="/SignUp">Register Here</Link>
           </span>
