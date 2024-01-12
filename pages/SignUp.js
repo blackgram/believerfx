@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputBtn from "@/components/inputBtn";
+import InputBtn from "../components/InputBtn";
 import Link from "next/link";
 import Image from "next/image";
 import gBtn from "../assets/google.png";
