@@ -115,7 +115,7 @@ const SignUp = () => {
           </Link>
         </div>
         <div className="text-ash p-4 pb-6">
-          Already have an account?{" "}
+          Already have an account?
           <span className="text-primary">
             <Link href="/Login">Log In</Link>
           </span>
