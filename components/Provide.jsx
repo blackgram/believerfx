@@ -20,7 +20,7 @@ const Provide = () => {
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[416px] lg:h-[300px] rounded-lg flex flex-col items-center justify-center p-4">
+        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px] rounded-lg flex flex-col items-center justify-center p-4">
           <div className="bg-black rounded-full lg:h-[80px] lg:w-[80px] flex items-center justify-center p-3 text-primary">
             <BiSolidMedal size={32} />
           </div>
@@ -33,7 +33,7 @@ const Provide = () => {
           </div>
         </div>
 
-        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[416px] lg:h-[300px]  rounded-lg flex flex-col items-center justify-center p-4">
+        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px]  rounded-lg flex flex-col items-center justify-center p-4">
           <div className="bg-black rounded-full p-3 text-primary lg:h-[80px] lg:w-[80px] flex items-center justify-center">
             <MdPeopleAlt size={32} />
           </div>
@@ -45,7 +45,7 @@ const Provide = () => {
             Successful traders carefully manage their capital,
           </div>
         </div>
-        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[416px] lg:h-[300px]  rounded-lg flex flex-col items-center justify-center p-4">
+        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px]  rounded-lg flex flex-col items-center justify-center p-4">
           <div className="bg-black rounded-full p-3 text-primary lg:h-[80px] lg:w-[80px] flex items-center justify-center">
             <MdSecurity size={32} />
           </div>

@@ -8,9 +8,9 @@ const Footer = () => {
   return (
     <div className="text-ash bg-black flex flex-col gap-4 justify-center items-center p-4 lg:pt-[10rem] relative mb-5  ">
       <CTA2 />
-      <div className="md:flex md:w-full md:items-start md:justify-evenly lg:gap-8 ">
-        <div className="flex flex-col gap-2  ">
-          <div className="text-white text-[20px] lg:text-[24px] font-bold mb-2">
+      <div className="flex flex-col  gap-5 md:flex-row md:w-full md:items-start md:justify-evenly lg:gap-8 ">
+        <div className="flex flex-col text-center md:text-left gap-2  ">
+          <div className="text-white text-[20px] lg:text-[24px] font-bold mb-1">
             Quick Links
           </div>
           <div>
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col text-center md:text-left gap-2">
           <div className="text-white text-[20px] lg:text-[24px] font-bold mb-2">
             Company
           </div>
@@ -41,7 +41,7 @@ const Footer = () => {
             <Link href="/">Careers</Link>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col text-center md:text-left gap-2">
           <div className="text-white text-[20px] lg:text-[24px] font-bold mb-2">
             Legal
           </div>
@@ -52,7 +52,7 @@ const Footer = () => {
             <Link href="/">Privacy & Policy</Link>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col text-center md:text-left gap-2">
           <div className="text-white text-[20px] lg:text-[24px] font-bold mb-2">
             Contact Us
           </div>

@@ -3,7 +3,7 @@ import {CTA, Hero, Header, HowSection, Provide, Navbar, Testimonials, PlanSectio
 
 const Home = () => {
   return (
-    <div className='font-poppins overflow-hidden'>
+    <div className='font-poppins overflow-hidden bg-black'>
       <Header />
       <Hero />
       <HowSection />

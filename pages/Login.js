@@ -8,7 +8,7 @@ import star from "../assets/star.png";
 
 const Login = () => {
   return (
-    <div className="flex flex-col md:flex-row md:w-full">
+    <div className="bg-primary flex flex-col md:flex-row md:w-full">
       <div className="h-[30vh] md:h-[100vh] md:w-[40vw] bg-primary text-black flex items-center justify-center text-[50px]  text-headtext font-[700] p-9 leading-0 text-center md:text-left">
         Welcome <br /> Back!
       </div>
@@ -21,9 +21,11 @@ const Login = () => {
       />
       <div className="bg-black flex flex-col justify-center items-center min-h-[70vh] md:min-h-[100vh] md:w-full">
         <div className="logo">
-          <div className="font-bold text-[40px] text-primary p-4 pb-1">
-            B<span className="italic text-secondary text-[40px]">fx</span>
-          </div>
+          <Link href="/">
+            <div className="font-bold text-[40px] text-primary p-4 pb-1">
+              B<span className="italic text-secondary text-[40px]">fx</span>
+            </div>
+          </Link>
         </div>
         <div className="text-white font-bold">Login to your account</div>
 
@@ -43,7 +45,7 @@ const Login = () => {
         {/* user inputs end */}
 
         <div className="text-white w-full md:w-[316px] md:px-0 p-4 flex justify-between">
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <input type="checkbox" />
             <div>Remember me</div>
           </div>
@@ -74,7 +76,7 @@ const Login = () => {
         <div className="text-ash p-4 pb-6">
           Don&apos;t have an account?
           <span className="text-primary">
-            <Link href="/SignUp">Register Here</Link>
+            <Link href="/SignUp"> Register Here</Link>
           </span>
         </div>
       </div>

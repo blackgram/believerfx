@@ -23,29 +23,38 @@ const Navbar = () => {
     };
   }, [dropdownRef]);
 
-  const [isOpen, setIsOpen] = useState(false) 
-  
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+  const [isOpen, setIsOpen] = useState(false);
 
-  const menuItems =[
-    {id: 1, title: 'Home', link: '/', active: true},
-    {id: 2, title: 'Markets', link: '/', active: false },
-    {id: 3, title: 'About Us', link: '/', active: false },
-    {id: 4, title: 'FAQ', link: '/', active: false},
-    {id: 5, title: 'Careers', link: '/', active: false},
-    {id: 6, title: 'Contact Us', link: '/', active: false},
-  ]
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const menuItems = [
+    { id: 1, title: "Home", link: "/", active: true },
+    { id: 2, title: "Markets", link: "/", active: false },
+    { id: 3, title: "About Us", link: "/", active: false },
+    { id: 4, title: "FAQ", link: "/", active: false },
+    { id: 5, title: "Careers", link: "/", active: false },
+    { id: 6, title: "Contact Us", link: "/", active: false },
+  ];
 
   return (
-    <div className="bg-black w-full flex justify-between items-center px-2 py-4 font-poppins text-[14px] font-bold">
-      <div ref={dropdownRef}>
-        <GiHamburgerMenu
-          size={"2rem"}
-          onClick={() => (setShowDropdown(!showDropdown), toggleMenu)}
-          className="text-primary"
-        />
+    <div className="bg-black w-full flex justify-between items-center px-4 py-4 font-poppins text-[14px] font-bold fixed">
+      <div className="flex items-center justify-center gap-2">
+        <div ref={dropdownRef}>
+          <GiHamburgerMenu
+            size={"2rem"}
+            onClick={() => (setShowDropdown(!showDropdown), toggleMenu)}
+            className="text-primary"
+          />
+        </div>
+        <div className="logo">
+          <Link href="/">
+            <div className="font-bold text-[30px] text-primary">
+              B<span className="italic text-secondary text-[30px]">fx</span>
+            </div>
+          </Link>
+        </div>
       </div>
 
       <div
@@ -54,12 +63,19 @@ const Navbar = () => {
           showDropdown ? "flex" : "none"
         } absolute flex-col left-0 top-[60px] w-full bg-black z-100 overflow-hidden transition duration-[0.5s] ease ${
           showDropdown ? "visible" : "invisible"
-        } ${showDropdown ? "opacity-100" : "opacity-0"} origin-top ${showDropdown? 'scale-y-100' : 'scale-y-[0.3]'} `}
+        } ${showDropdown ? "opacity-100" : "opacity-0"} origin-top ${
+          showDropdown ? "scale-y-100" : "scale-y-[0.3]"
+        } `}
       >
         {menuItems.map((item, i) => (
-        <div key={item.i} className={`p-2 text-[16px]  ${item.active == true ? 'text-primary' : 'text-white' }`}>
-          <Link href={item.link}>{item.title}</Link>
-        </div>
+          <div
+            key={item.i}
+            className={`p-2 text-[16px]  ${
+              item.active == true ? "text-primary" : "text-white"
+            }`}
+          >
+            <Link href={item.link}>{item.title}</Link>
+          </div>
         ))}
       </div>
 

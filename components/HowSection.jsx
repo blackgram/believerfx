@@ -9,14 +9,14 @@ import sun from '../assets/sun.png'
 
 const HowSection = () => {
   return (
-    <div className="w-full h-full bg-secondary flex flex-col items-center justify-center px-2 pt-2 relative">
+    <div className="w-full h-full bg-secondary flex flex-col items-center justify-center px-2 pt-2 ">
       <div className="text-headtext text-[36px] font-bold pt-7">
         How it Works
       </div>
       <div className="w-[60px] h-[5px] bg-black mb-5" />
       <div className=" flex flex-col items-center justify-center md:flex-row md:justify-between md:items-center">
         <div className="flex flex-col gap-4  md:px-2 md:pb-4 lg:w-[50vw]  ">
-          <div className="flex gap-4 bg-[#c29651] lg:gap-12 lg:max-w-[45rem] text-[18px] items-center p-4 rounded-md">
+          <div className="flex gap-6 bg-[#c29651] max-w-[21rem] lg:gap-12 lg:max-w-[45rem] text-[18px] items-center p-4 rounded-md">
             <div className="font-bold lg:text-[20px] w-16 ">
               <div>Deposit</div>
               <Image src={download} width={60} height={100} alt="deposit" className="w-[60px]" />
@@ -26,17 +26,17 @@ const HowSection = () => {
               systems.
             </div>
           </div>
-          <div className="flex gap-4 lg:gap-12 text-[18px] bg-[#c29651] lg:max-w-[45rem] p-4 items-center rounded-md">
+          <div className="flex gap-6 lg:gap-12 text-[18px] bg-[#c29651] max-w-[21rem] lg:max-w-[45rem] p-4 items-center rounded-md">
             <div className="font-bold w-16 lg:text-[20px]">
               <div>Trade</div>
-              <Image src={fprofit} width={70} height={100} alt="deposit" className="w-[60px]" />
+              <Image src={fprofit} sizes="100vw" alt="deposit" className="min-w-[60px]" />
             </div>
             <div>
               Trade any of 100 assets and stocks. Use technical analysis and
               trade the news
             </div>
           </div>
-          <div className="flex gap-4 lg:gap-12 text-[18px] bg-[#c29651] p-4 items-center lg:max-w-[45rem] rounded-md">
+          <div className="flex gap-6 lg:gap-12 text-[18px] bg-[#c29651] max-w-[21rem] p-4 items-center lg:max-w-[45rem] rounded-md">
             <div className="font-bold w-16 lg:text-[20px]">
               <div>Withdraw</div>
               <Image src={upload} width={60} height={100} alt="deposit" className="w-[60px]"/>

@@ -37,7 +37,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row md:w-full md:h-full">
+    <div className="flex flex-col bg-primary md:flex-row md:w-full md:h-full">
       <div className="h-[30vh] md:h-auto md:w-[40vw]">
         <div className="h-full  bg-primary text-black flex items-center justify-center text-[50px]  text-headtext font-[700] p-9 leading-0 text-center md:text-left">
           Hi!
@@ -89,7 +89,7 @@ const SignUp = () => {
         {/* user inputs start */}
 
         <div className="text-white w-full md:w-[316px] p-4 flex justify-between">
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <input type="checkbox" />
             <div>I accept the privacy policy</div>
           </div>
@@ -117,7 +117,7 @@ const SignUp = () => {
         <div className="text-ash p-4 pb-6">
           Already have an account?
           <span className="text-primary">
-            <Link href="/Login">Log In</Link>
+            <Link href="/Login"> Log In</Link>
           </span>
         </div>
       </div>
