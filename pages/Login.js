@@ -1,12 +1,39 @@
+'use client'
 import InputBtn from "../components/InputBtn";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import gBtn from "../assets/google.png";
 import fBtn from "../assets/facebook.png";
 import star from "../assets/star.png";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "./firebaseConfig";
+import { useRouter } from "next/navigation";
+
 
 const Login = () => {
+
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth)
+  const router = useRouter()
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSignIn = async (e) => {
+    e.preventDefault()
+
+    try{
+      const res = await signInWithEmailAndPassword(email. password)
+      console.log({res})
+      sessionStorage.setItem('user', true)
+      setEmail('')
+      setPassword('')
+      router.push('/UserMain/Dashboard')
+    }catch(e){
+      console.error(e)
+    }
+  }
+
   return (
     <div className="bg-primary flex flex-col md:flex-row md:w-full">
       <div className="h-[30vh] md:h-[100vh] md:w-[40vw] bg-primary text-black flex items-center justify-center text-[50px]  text-headtext font-[700] p-9 leading-0 text-center md:text-left">
@@ -33,12 +60,12 @@ const Login = () => {
 
         <div className="inputs text-white flex flex-col w-full md:w-[350px] p-2 text-[14px] gap-5 ">
           <div className="">
-            <div className="mb-2">User Name</div>
-            <InputBtn placeholder="Username" type="text" />
+            <div className="mb-2">Email</div>
+            <InputBtn placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
             <div className="mb-2">Password</div>
-            <InputBtn placeholder="Password" type="password" />
+            <InputBtn placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
         </div>
 
@@ -54,8 +81,8 @@ const Login = () => {
           </Link>
         </div>
         <div className="w-full md:w-[316px] md:px-0 p-4">
-          <Link href="#">
-            <div className=" bg-primary rounded-full py-2 flex items-center justify-center ">
+          <Link href="/UserMain/Dashboard">
+            <div onClick={handleSignIn} className=" bg-primary rounded-full py-2 flex items-center justify-center ">
               Sign In
             </div>
           </Link>

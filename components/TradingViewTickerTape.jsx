@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const TradingViewTickerTape = () => {
+const TradingViewTickerTape = (props) => {
   useEffect(() => {
     // Load TradingView widget script
     const script = document.createElement("script");
@@ -39,11 +39,13 @@ const TradingViewTickerTape = () => {
   }, []);
 
   return (
-    <div
-      id="tradingview-widget-script-container"
-      className="tradingview-widget-container fixed bottom-0 max-w-[100vw]"
-    >
-      <div className="tradingview-widget-container__widget"></div>
+    <div>
+      <div
+        id="tradingview-widget-script-container"
+        className={`tradingview-widget-container ${props.display == 'down'? 'fixed bottom-0' : 'flex'}  max-w-[100vw]`}
+      >
+        <div className="tradingview-widget-container__widget"></div>
+      </div>
     </div>
   );
 };

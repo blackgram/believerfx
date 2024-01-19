@@ -13,7 +13,7 @@ const Home = () => {
       <PlanSection />
       <PayMethods />
       <Footer />
-      <TradingViewTickerTape />
+      <TradingViewTickerTape display='down' />
     </div>
   )
 }
