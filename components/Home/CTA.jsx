@@ -2,8 +2,8 @@ import React from "react";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
-import ctaImg from "../assets/trade_on.png";
-import coin from '../assets/coin.png'
+import ctaImg from "../../assets/trade_on.png";
+import coin from '../../assets/coin.png'
 import Link from "next/link";
 
 const CTA = () => {

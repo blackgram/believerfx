@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import btc from '../assets/bitcoin.png'
-import ltc from '../assets/litecoin.png'
-import eth from '../assets/ethereum.png'
+import btc from '../../assets/bitcoin.png'
+import ltc from '../../assets/litecoin.png'
+import eth from '../../assets/ethereum.png'
 
 const PayMethods = () => {
   return (

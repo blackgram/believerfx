@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import InputBtn from "../components/InputBtn";
+import InputBtn from "../components/Authentication/InputBtn";
 import Link from "next/link";
 import Image from "next/image";
 import gBtn from "../assets/google.png";
@@ -8,6 +8,13 @@ import fBtn from "../assets/facebook.png";
 import star from "../assets/star.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth"; // Import the hook from the correct path
 import { auth } from "./firebaseConfig";
+import { useRouter } from "next/router";
+import { updateProfile } from "firebase/auth";
+import toast, { Toaster } from "react-hot-toast";
+import { setLoading } from "@/Redux/features/userSlice";
+import { BarLoader } from "react-spinners";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -16,39 +23,49 @@ const SignUp = () => {
   const [lastName, setLastname] = useState("");
   const [userName, setUsername] = useState("");
 
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.data.user.isLoading)
+
+  const router = useRouter();
+
   // Using the correct hook from react-firebase-hooks
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
-    console.log("Email:", email);
-    console.log("Password:", password);
+    dispatch(setLoading(true));
 
     try {
       const res = await createUserWithEmailAndPassword(email, password);
-      console.log({ res });
-      setEmail("");
-      setPassword("");
+      if (res) {
+        toast.success("Sign Up Successful. Redirecting...");
+        updateProfile(auth.currentUser, { displayName: firstName });
+        console.log({ res });
+        router.push("/Login");
+      }
+      else{
+        toast.error("Signup error");
+        dispatch(setLoading(false));
+      }
     } catch (error) {
       console.error("Error creating user:", error.message);
-      console.log(email);
     }
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+  const handleFirstNameChange = (e) => {
+    setFirstname(e.target.value);
+  };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
 
   const handleConfirmPasswordChange = (e) => {
     const newConfirmPassword = e.target.value;
@@ -72,6 +89,7 @@ const SignUp = () => {
         </div>{" "}
       </div>
       <div className="bg-black flex flex-col justify-center items-center md:min-h-[100vh] md:w-full md:pt-9">
+        <Toaster />
         <div className="logo">
           <Link href="/">
             <div className="font-bold text-[40px] text-primary p-4 pb-1">
@@ -90,6 +108,7 @@ const SignUp = () => {
                 placeholder="Your first name"
                 type="text"
                 value={firstName}
+                onChange={handleFirstNameChange}
               />
             </div>
             <div className="">
@@ -143,10 +162,10 @@ const SignUp = () => {
           <div className="w-full md:w-[316px] md:px-0 p-4">
             <button
               type="submit"
-              className="bg-primary rounded-full py-2 w-full md:w-[316px] md:px-0 p-4 flex items-center justify-center"
+              className="bg-primary rounded-full py-2 min-h-[40px] w-full md:w-[316px] md:px-0 p-4 flex items-center justify-center"
               onClick={handleSignUp}
             >
-              Sign Up
+              {isLoading ? <BarLoader /> : 'Sign up'}
             </button>
           </div>
         </form>

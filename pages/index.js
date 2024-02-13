@@ -1,5 +1,5 @@
 import TradingViewTickerTape from '@/components/TradingViewTickerTape'
-import {CTA, Hero, Header, HowSection, Provide, Navbar, Testimonials, PlanSection, PayMethods, Footer} from '../components'
+import {CTA, Hero, Header, HowSection, Provide, Navbar, Testimonials, PlanSection, PayMethods, Footer} from '../components/Home'
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       <Testimonials />
       <PlanSection />
       <PayMethods />
-      <Footer />
+      <Footer cta={true} />
       <TradingViewTickerTape display='down' />
     </div>
   )

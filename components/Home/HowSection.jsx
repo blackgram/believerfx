@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import download from "../assets/download.png";
-import upload from "../assets/upload.png";
-import fprofit from "../assets/financial-profit.png";
-import ladypic from "../assets/why_trade.png";
-import star from '../assets/star.png'
-import sun from '../assets/sun.png'
+import download from "../../assets/download.png";
+import upload from "../../assets/upload.png";
+import fprofit from "../../assets/financial-profit.png";
+import ladypic from "../../assets/why_trade.png";
+import star from '../../assets/star.png'
+import sun from '../../assets/sun.png'
 
 const HowSection = () => {
   return (

@@ -1,38 +1,53 @@
-'use client'
-import InputBtn from "../components/InputBtn";
+"use client";
+import InputBtn from "../components/Authentication/InputBtn";
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
 import gBtn from "../assets/google.png";
 import fBtn from "../assets/facebook.png";
 import star from "../assets/star.png";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { auth } from "./firebaseConfig";
 import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "@/Redux/features/userSlice";
+import { BarLoader } from "react-spinners";
 
 
 const Login = () => {
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+  const router = useRouter();
 
-  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth)
-  const router = useRouter()
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.data.user.isLoading)
 
   const handleSignIn = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    dispatch(setLoading(true));
 
-    try{
-      const res = await signInWithEmailAndPassword(email. password)
-      console.log({res})
-      sessionStorage.setItem('user', true)
-      setEmail('')
-      setPassword('')
-      router.push('/UserMain/Dashboard')
-    }catch(e){
-      console.error(e)
+    try {
+      
+      const res = await signInWithEmailAndPassword(email, password);
+      if (res) {
+        toast.success('Login successful')
+        setEmail("");
+        setPassword("");
+        router.push("/UserMain/Dashboard");
+      }
+      else {
+        dispatch(setLoading(false));
+        toast.error('Login failed')
+      }
+    } catch (e) {
+      console.error(e);
     }
-  }
+  };
 
   return (
     <div className="bg-primary flex flex-col md:flex-row md:w-full">
@@ -47,6 +62,7 @@ const Login = () => {
         className="hidden md:block md:absolute top-40 left-10 previewSkew z-100"
       />
       <div className="bg-black flex flex-col justify-center items-center min-h-[70vh] md:min-h-[100vh] md:w-full">
+      <Toaster />
         <div className="logo">
           <Link href="/">
             <div className="font-bold text-[40px] text-primary p-4 pb-1">
@@ -61,11 +77,21 @@ const Login = () => {
         <div className="inputs text-white flex flex-col w-full md:w-[350px] p-2 text-[14px] gap-5 ">
           <div className="">
             <div className="mb-2">Email</div>
-            <InputBtn placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <InputBtn
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div>
             <div className="mb-2">Password</div>
-            <InputBtn placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <InputBtn
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
         </div>
 
@@ -82,8 +108,11 @@ const Login = () => {
         </div>
         <div className="w-full md:w-[316px] md:px-0 p-4">
           <Link href="/UserMain/Dashboard">
-            <div onClick={handleSignIn} className=" bg-primary rounded-full py-2 flex items-center justify-center ">
-              Sign In
+            <div
+              onClick={handleSignIn}
+              className=" bg-primary rounded-full py-2 min-h-[40px] flex items-center justify-center "
+            >
+              {isLoading ? <BarLoader /> : 'Sign in'}
             </div>
           </Link>
         </div>

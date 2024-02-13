@@ -1,7 +1,7 @@
 import React from "react";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import Image from "next/image";
-import heroImage from "../assets/hero_thumb.png";
+import heroImage from "../../assets/hero_thumb.png";
 import { TbTools } from "react-icons/tb";
 import { FaFastForward } from "react-icons/fa";
 import { GiProfit } from "react-icons/gi";

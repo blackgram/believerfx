@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-import starFocus from "../assets/star_focus.png";
+import starFocus from "../../assets/star_focus.png";
 import Image from "next/image";
 
-const CTA2 = () => {
+const CTA2 = (props) => {
   return (
-    <div className=" hidden lg:absolute lg:flex items-center justify-between bg-nb3/75 rounded-[24px] w-[53rem] h-[10rem] bottom-[35rem] px-[3.5rem]  ">
+    <div className={` hidden lg:absolute  lg:flex items-center justify-between bg-nb3/75 rounded-[24px] w-[53rem] h-[10rem] bottom-[35rem] px-[3.5rem]`}>
       <div className="absolute h-full flex items-center right-[60px] z-0 rotate">
         <Image src={starFocus} width={150} height={150} className="" />
       </div>

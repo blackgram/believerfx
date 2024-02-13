@@ -4,10 +4,10 @@ import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import CTA2 from "./CTA2";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
-    <div className="text-ash bg-black flex flex-col gap-4 justify-center items-center p-4 lg:pt-[10rem] relative mb-5  ">
-      <CTA2 />
+    <div className=" text-ash bg-black flex flex-col gap-4 justify-center items-center p-4 lg:pt-[10rem] relative mb-5  ">
+      {props.cta && <CTA2 />}
       <div className="flex flex-col  gap-5 md:flex-row md:w-full md:items-start md:justify-evenly lg:gap-8 ">
         <div className="flex flex-col text-center md:text-left gap-2  ">
           <div className="text-white text-[20px] lg:text-[24px] font-bold mb-1">
