@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";
 import DashMain from "@/components/Dashboard/DashMain";
-import { auth } from "../firebaseConfig";
+import { auth } from "../../components/firebaseConfig";
 import { loginUser, setLoading } from "@/Redux/features/userSlice";
 import DashNv from "@/components/Dashboard/DashNav";
 import { Footer } from "@/components/Home";

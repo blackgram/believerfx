@@ -7,7 +7,7 @@ import gBtn from "../assets/google.png";
 import fBtn from "../assets/facebook.png";
 import star from "../assets/star.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth"; // Import the hook from the correct path
-import { auth } from "./firebaseConfig";
+import { auth } from "../components/firebaseConfig";
 import { useRouter } from "next/router";
 import { updateProfile } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";

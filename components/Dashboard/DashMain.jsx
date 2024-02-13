@@ -10,7 +10,7 @@ import { AiOutlineStock } from "react-icons/ai";
 import { FaArrowRight } from "react-icons/fa";
 import ViewChart from "@/components/ViewChart";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "@/pages/firebaseConfig";
+import { auth } from "@/components/firebaseConfig";
 import { logoutUser } from "@/Redux/features/userSlice";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/router";

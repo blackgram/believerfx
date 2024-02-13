@@ -10,7 +10,7 @@ import {
   useSignInWithEmailAndPassword,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { auth } from "./firebaseConfig";
+import { auth } from "../components/firebaseConfig";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
