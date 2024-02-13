@@ -5,7 +5,6 @@ import "swiper/css/pagination"; // Import Swiper pagination styles
 import "swiper/css/navigation"; // Import Swiper navigation styles
 import "swiper/css/autoplay"; // Import Swiper navigation styles
 import { FaQuoteLeft } from "react-icons/fa";
-import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { testimonialData as data } from "./Data";
 import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
 import CustomSwiperNav from "./CustomSwiperNav";
@@ -27,7 +26,7 @@ const Testimonials = () => {
           {data.map((item) => (
             <SwiperSlide
               key={item.id}
-              className="bg-black p-3 gap-3 text-ash  min-h-[290px] rounded-lg"
+              className="bg-black z-10 p-3 gap-3 text-ash  min-h-[290px] rounded-lg"
             >
               <div className="text-primary">
                 <FaQuoteLeft size={30} />

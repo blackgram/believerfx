@@ -42,7 +42,7 @@ const TradingViewTickerTape = (props) => {
     <div>
       <div
         id="tradingview-widget-script-container"
-        className={`tradingview-widget-container ${props.display == 'down'? 'fixed bottom-0' : 'flex'}  max-w-[100vw]`}
+        className={`tradingview-widget-container ${props.display == 'down'? 'fixed z-50 bottom-0' : 'flex'}  max-w-[100vw]`}
       >
         <div className="tradingview-widget-container__widget"></div>
       </div>

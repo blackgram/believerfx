@@ -15,7 +15,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className='z-10'>
+    <div className='z-50'>
       {isSmallScreen ? <Navbar /> : <NavbarLg /> }
     </div>
   )

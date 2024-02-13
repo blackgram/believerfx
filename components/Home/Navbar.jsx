@@ -39,7 +39,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-black w-full flex justify-between items-center px-4 py-4 font-poppins text-[14px] font-bold fixed">
+    <div className="bg-black z-50 w-full flex justify-between items-center px-4 py-4 font-poppins text-[14px] font-bold fixed">
       <div className="flex items-center justify-center gap-2">
         <div ref={dropdownRef}>
           <GiHamburgerMenu

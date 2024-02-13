@@ -39,7 +39,7 @@ const DashNv = () => {
   
 
   return (
-    <div className="bg-black w-full flex justify-between items-center px-4 py-4 font-poppins text-[14px] font-bold">
+    <div className="bg-black w-full z-50 flex justify-between items-center px-4 py-4 font-poppins text-[14px] font-bold">
       <div className="flex items-center justify-center gap-2">
         <div>
           <GiHamburgerMenu
