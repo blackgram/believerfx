@@ -3,14 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import Swiper styles
 import "swiper/css/pagination"; // Import Swiper pagination styles
 import "swiper/css/navigation"; // Import Swiper navigation styles
+import "swiper/css/autoplay"; // Import Swiper navigation styles
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import { testimonialData as data } from "./Data";
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
 import CustomSwiperNav from "./CustomSwiperNav";
-
-// Install Swiper modules
-SwiperCore.use([Pagination, Navigation, Autoplay]);
 
 const Testimonials = () => {
   return (
@@ -19,6 +17,7 @@ const Testimonials = () => {
       <div className="font-bold text-[24px]">What people say</div>
       <div className="w-full">
         <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={50}
           slidesPerView={1}
           pagination={{ clickable: true }}
@@ -34,7 +33,9 @@ const Testimonials = () => {
                 <FaQuoteLeft size={30} />
               </div>
               <div className="text-[16px] mt-3">{item.note}</div>
-              <div className="text-primary font-bold text-[18px] mt-3 text-headtext">{item.name}</div>
+              <div className="text-primary font-bold text-[18px] mt-3 text-headtext">
+                {item.name}
+              </div>
               <div className="italic ">{item.position}</div>
               <CustomSwiperNav />
             </SwiperSlide>
