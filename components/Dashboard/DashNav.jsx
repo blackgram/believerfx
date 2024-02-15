@@ -16,6 +16,10 @@ const DashNv = () => {
 
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  
+  useEffect(() => {
+    !isSmallScreen ? dispatch(setShowMenu(true)) : dispatch(setShowMenu(false))
+  }, [])
 
   useEffect(() => {
     const handleResize = () => setIsSmallScreen(window.innerWidth < 1024);
@@ -24,9 +28,6 @@ const DashNv = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    !isSmallScreen && dispatch(setShowMenu(true))
-  }, [])
 
 
   const toggleMenu = (e) => {

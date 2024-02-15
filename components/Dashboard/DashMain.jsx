@@ -18,32 +18,18 @@ import LineChart from "./LineChart";
 import { ChartData, chartData } from "./ChartData";
 import TradeStatistics from "./TradeStatistics";
 import DashMenu from "./DashMenu";
+import { handleLogout } from "./AuthUtils";
+
+
 
 const DashMain = () => {
   const user = useSelector((state) => state.data.user.user);
   const showMenu = useSelector((state) => state.data.menu.showMenu);
-
-  const dispatch = useDispatch();
+  const isSmallScreen = useSelector((state) => state.data.screenSize.isSmallScreen)
 
   const router = useRouter();
 
-  const handleLogOut = () => {
-    dispatch(logoutUser());
-    signOut(auth);
-    router.push("/");
-  };
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
 
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsSmallScreen(window.innerWidth < 1024);
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const [gainData, setGainData] = useState({
     labels: chartData.map((item) => item.month),
@@ -93,7 +79,7 @@ const DashMain = () => {
 
   return (
     <div className="min-h-100vh max-w-[100vw] w-full text-white bg-black flex relative">
-      {showMenu && <DashMenu handleLogOut={handleLogOut} />}
+      {showMenu && <DashMenu />}
       <div className={`${showMenu && !isSmallScreen ? 'w-[80vw]'  : 'w-full'}  transition-transform translate-x-0  duration-1000 ease `}>
         <div className="p-4 lg:p-8">
           <div className="flex">
