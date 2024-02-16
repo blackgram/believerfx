@@ -70,7 +70,7 @@ const DashMenu = () => {
           </div>
         </div>
         <div className="p-2 text-justify">
-          Your Account is currently inactive, please head to the "funding" page,
+          Your Account is currently inactive, please head to the &quot;funding&quot; page,
           select a plan and fund your account at which point you will be able to
           access this page. If you are experiencing any difficulties please
           contact support.

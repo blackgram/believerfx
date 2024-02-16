@@ -44,8 +44,8 @@ const HowSection = () => {
             </div>
             <div>
               Trade any of 100 assets and stocks. Take advantaged of our
-              "managed trading" feature where we make trades for you and earn
-              you profit. Or Self Trade if you feel confident. There's no limit!.
+              &quot;managed trading&quot; feature where we make trades for you and earn
+              you profit. Or Self Trade if you feel confident. There&apos;s no limit!.
             </div>
           </div>
           <div className="flex gap-6 lg:gap-12 text-[18px] bg-[#c29651] max-w-[21rem] p-4 items-center lg:max-w-[45rem] rounded-md">
