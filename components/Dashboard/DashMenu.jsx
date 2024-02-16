@@ -11,32 +11,34 @@ import { MdOutlineReportGmailerrorred } from "react-icons/md";
 import { MdOutlineSupportAgent } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import { FaArrowTrendUp } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
 import { setActiveDash } from "@/Redux/features/activeDashSlice";
 import { handleLogout } from "./AuthUtils";
 import { auth } from "../firebaseConfig";
 import { useRouter } from "next/router";
-import { setShowMenu } from "@/Redux/features/menuSlice";
+import toast, { Toaster } from "react-hot-toast";
 
+import { setShowMenu } from "@/Redux/features/menuSlice";
 
 const DashMenu = () => {
   const showMenu = useSelector((state) => state.data.menu.showMenu);
-  const isSmallScreen = useSelector((state) => state.data.screenSize.isSmallScreen)
+  const isSmallScreen = useSelector(
+    (state) => state.data.screenSize.isSmallScreen
+  );
   const activeDashElement = useSelector(
     (state) => state.data.activeDash.activeComponent
-  ); 
-  
+  );
+
   const dispatch = useDispatch();
   const router = useRouter();
-  const dropdownRef = useRef(null)
-
-
+  const dropdownRef = useRef(null);
 
   const handleItemClick = (element) => {
     dispatch(setActiveDash(element));
   };
 
   const LogOut = () => {
-    handleLogout(dispatch, auth, router)
+    handleLogout(dispatch, auth, router);
   };
 
   useEffect(() => {
@@ -54,12 +56,35 @@ const DashMenu = () => {
     };
   }, [dropdownRef]);
 
+  const dismissToast = () => toast.dismiss();
+
+  const handleUnauthorizedPage = () => {
+    toast.custom((t) => (
+      <div className=" bg-nb3 flex flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]">
+        <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
+          <div>Account Inactive</div>  
+          <div>
+            <IoClose
+              className="text-[30px] text-primary "
+            />
+          </div>
+        </div>
+        <div className="p-2 text-justify">
+          Your Account is currently inactive, please head to the "funding" page,
+          select a plan and fund your account at which point you will be able to
+          access this page. If you are experiencing any difficulties please
+          contact support.
+        </div>
+      </div>
+    ));
+  };
+
   const menuItems = [
     {
       id: 1,
       title: "Dashboard",
       link: "/UserMain/Dashboard",
-      active: activeDashElement == 'Dashboard'? true : false,
+      active: activeDashElement == "Dashboard" ? true : false,
       icon: <IoMdHome />,
       onclick: handleItemClick,
     },
@@ -67,7 +92,7 @@ const DashMenu = () => {
       id: 2,
       title: "Profile",
       link: "/UserMain/Dashboard",
-      active: activeDashElement == 'Profile'? true : false,
+      active: activeDashElement == "Profile" ? true : false,
       icon: <FaUser />,
       onclick: handleItemClick,
     },
@@ -77,7 +102,7 @@ const DashMenu = () => {
       link: "/UserMain/Dashboard",
       active: false,
       icon: <MdOutlinePsychology />,
-      onclick: handleItemClick,
+      onclick: handleUnauthorizedPage,
     },
     {
       id: 4,
@@ -85,11 +110,19 @@ const DashMenu = () => {
       link: "/UserMain/Dashboard",
       active: false,
       icon: <FaArrowTrendUp />,
-      onclick: handleItemClick,
+      onclick: handleUnauthorizedPage,
     },
     {
       id: 5,
       title: "Funding",
+      link: "/UserMain/Dashboard",
+      active: false,
+      icon: <MdCurrencyExchange />,
+      onclick: handleItemClick,
+    },
+    {
+      id: 5,
+      title: "Withdrawal",
       link: "/UserMain/Dashboard",
       active: false,
       icon: <MdCurrencyExchange />,
@@ -121,9 +154,10 @@ const DashMenu = () => {
     },
   ];
 
-
   return (
     <div>
+      <Toaster />
+
       {/* For small screens */}
       {isSmallScreen ? (
         <div
@@ -151,7 +185,12 @@ const DashMenu = () => {
                 item.active == true ? "text-primary" : "text-white"
               }`}
             >
-              <div className={`flex items-center gap-1 cursor-pointer ${item.id == 9 && 'text-red-500'}`} onClick={() => item.onclick(item.title)}>
+              <div
+                className={`flex items-center gap-1 cursor-pointer ${
+                  item.id == 9 && "text-red-500"
+                }`}
+                onClick={() => item.onclick(item.title)}
+              >
                 <div>{item.icon}</div>
                 <div>{item.title}</div>
               </div>
@@ -185,7 +224,12 @@ const DashMenu = () => {
               }`}
             >
               <Link href={item.link}>
-                <div className={`flex items-center gap-1 cursor-pointer ${item.id == 9 && 'text-red-500'}`} onClick={() => item.onclick(item.title)}>
+                <div
+                  className={`flex items-center gap-1 cursor-pointer ${
+                    item.id == 9 && "text-red-500"
+                  }`}
+                  onClick={() => item.onclick(item.title)}
+                >
                   <div>{item.icon}</div>
                   <div>{item.title}</div>
                 </div>

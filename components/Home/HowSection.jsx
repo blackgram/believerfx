@@ -4,8 +4,8 @@ import download from "../../assets/download.png";
 import upload from "../../assets/upload.png";
 import fprofit from "../../assets/financial-profit.png";
 import ladypic from "../../assets/why_trade.png";
-import star from '../../assets/star.png'
-import sun from '../../assets/sun.png'
+import star from "../../assets/star.png";
+import sun from "../../assets/sun.png";
 
 const HowSection = () => {
   return (
@@ -19,30 +19,48 @@ const HowSection = () => {
           <div className="flex gap-6 bg-[#c29651] max-w-[21rem] lg:gap-12 lg:max-w-[45rem] text-[18px] items-center p-4 rounded-md">
             <div className="font-bold lg:text-[20px] w-16 ">
               <div>Deposit</div>
-              <Image src={download} width={60} height={100} alt="deposit" className="w-[60px]" />
+              <Image
+                src={download}
+                width={60}
+                height={100}
+                alt="deposit"
+                className="w-[60px]"
+              />
             </div>
             <div className="">
-              Open real account and add funds. We work with more than 20 payment
+              Open real account and add funds. We work with 3 secure payment
               systems.
             </div>
           </div>
           <div className="flex gap-6 lg:gap-12 text-[18px] bg-[#c29651] max-w-[21rem] lg:max-w-[45rem] p-4 items-center rounded-md">
             <div className="font-bold w-16 lg:text-[20px]">
               <div>Trade</div>
-              <Image src={fprofit} sizes="100vw" alt="deposit" className="min-w-[60px]" />
+              <Image
+                src={fprofit}
+                sizes="100vw"
+                alt="deposit"
+                className="min-w-[60px]"
+              />
             </div>
             <div>
-              Trade any of 100 assets and stocks. Use technical analysis and
-              trade the news
+              Trade any of 100 assets and stocks. Take advantaged of our
+              "managed trading" feature where we make trades for you and earn
+              you profit. Or Self Trade if you feel confident. There's no limit!.
             </div>
           </div>
           <div className="flex gap-6 lg:gap-12 text-[18px] bg-[#c29651] max-w-[21rem] p-4 items-center lg:max-w-[45rem] rounded-md">
             <div className="font-bold w-16 lg:text-[20px]">
               <div>Withdraw</div>
-              <Image src={upload} width={60} height={100} alt="deposit" className="w-[60px]"/>
+              <Image
+                src={upload}
+                width={60}
+                height={100}
+                alt="deposit"
+                className="w-[60px]"
+              />
             </div>
             <div>
-              Get funds easily to your bank card or e-wallet. We take no
+              Get funds easily to your crypto wallet. We take no
               commission.
             </div>
           </div>
@@ -52,8 +70,18 @@ const HowSection = () => {
           <Image src={ladypic} sizes="100vw" alt="" />
         </div>
       </div>
-      <Image src={sun} width={100} height={100} className="hidden md:absolute top-20 left-20 push_animat" />
-      <Image src={star} width={100} height={100} className="hidden md:absolute top-40 right-40 previewSkew"/>
+      <Image
+        src={sun}
+        width={100}
+        height={100}
+        className="hidden md:absolute top-20 left-20 push_animat"
+      />
+      <Image
+        src={star}
+        width={100}
+        height={100}
+        className="hidden md:absolute top-40 right-40 previewSkew"
+      />
     </div>
   );
 };

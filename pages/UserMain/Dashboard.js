@@ -73,12 +73,12 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <DashNv />
       {componentToRender}
       {/* <DashMain /> */}
-      {/* <Footer  /> */}
-      {/* <TradingViewTickerTape display='fixed' /> */}
+      <Footer  />
+      <TradingViewTickerTape display='down' />
     </div>
   );
 };

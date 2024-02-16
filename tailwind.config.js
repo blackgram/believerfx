@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'sm': '640px',
+      'sm': '376px',
       'md': '768px',
       'lg': '1024px',
       'xl': '1280px',
@@ -28,7 +28,9 @@ module.exports = {
         primary: '#9AD953',
         secondary: '#F5C06D',
         ash: 'rgb(182, 182, 182)',
-        nb3: 'rgb(31, 31, 31)'
+        nb3: 'rgb(31, 31, 31)',
+        silver: '#C0C0C0',
+        gold: '#FFD700',
       },
       boxShadow: {
         glow: '0 0 20px 10px rgba(154, 217, 83, 0.5)',

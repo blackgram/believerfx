@@ -63,7 +63,7 @@ const DashNv = () => {
       {/* end of dropdown */}
       <div className="flex items-center justify-center gap-2">
         <div className=""></div>
-        <Link href="/SignUp">
+        <Link href="/UserMain/Dashboard">
           <div className="text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-md p-1 bg-primary ">
             <div>Deposit</div>
             <div>

@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="w-full bg-[#141414] pt-[6rem] md:pt-[8rem] lg:min-h-[100vh] lg:p-9 ">
+    <div className="w-full bg-[#141414] pt-[6rem] md:pt-[8rem] lg:justify-center lg:items-center lg:min-h-[100vh] lg:p-9 lg:pt-[7rem] ">
       <div className="bg-hero-pattern lg:bg-cover bg-no-repeat md:flex items-center justify-evenly lg:items-start lg:pt-10 z-5 ">
         <div className="py-2 px-5 text-[20px] mb-3 z-1">
           <div className="text-primary font-bold mb-3">

@@ -1,24 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Footer, Header, Navbar } from "@/components/Home";
-import DashNav from "@/components/Dashboard/DashNav";
-import TradingViewTickerTape from "@/components/TradingViewTickerTape";
+import { useDispatch, useSelector } from "react-redux";
 import { MdAccountBalance } from "react-icons/md";
 import { GiProfit } from "react-icons/gi";
 import { AiOutlineStock } from "react-icons/ai";
-import { FaArrowRight } from "react-icons/fa";
-import ViewChart from "@/components/ViewChart";
-import { useDispatch, useSelector } from "react-redux";
-import { auth } from "@/components/firebaseConfig";
-import { logoutUser } from "@/Redux/features/userSlice";
-import { signOut } from "firebase/auth";
+import { BiConversation } from "react-icons/bi";
 import { useRouter } from "next/router";
 import LineChart from "./LineChart";
 import { ChartData, chartData } from "./ChartData";
 import TradeStatistics from "./TradeStatistics";
 import DashMenu from "./DashMenu";
-import { handleLogout } from "./AuthUtils";
 
 
 
@@ -113,7 +105,7 @@ const DashMain = () => {
                 <div className="flex justify-between items-center lg:w-full lg:text-[20px]">
                   <div>
                     <div>Net Profit</div>
-                    <div className="text-[24px] font-semibold">$0.00</div>
+                    <div className="text-[24px] lg:text-[32px] font-semibold">$0.00</div>
                   </div>
                   <div className="text-[40px] lg:text-[60px] ">
                     <GiProfit />
@@ -124,7 +116,10 @@ const DashMain = () => {
                 <div className="flex justify-between items-center lg:w-full lg:text-[20px]">
                   <div>
                     <div>Referal Bonus</div>
-                    <div className="text-[24px] font-semibold">$0.00</div>
+                    <div className="text-[24px] lg:text-[32px] font-semibold">$0.00</div>
+                  </div>
+                  <div className="text-[40px] lg:text-[60px] ">
+                  <BiConversation />
                   </div>
                 </div>
               </div>
@@ -132,7 +127,7 @@ const DashMain = () => {
                 <div className="flex justify-between items-center lg:w-full lg:text-[20px]">
                   <div>
                     <div>Trading Percentage</div>
-                    <div className="text-[24px] font-semibold">0%</div>
+                    <div className="text-[24px] lg:text-[32px] font-semibold text-red-500">0%</div>
                   </div>
                   <div className="text-[40px] lg:text-[60px] ">
                     <AiOutlineStock />
