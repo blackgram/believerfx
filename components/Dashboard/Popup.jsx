@@ -6,7 +6,7 @@ const Popup = () => {
       <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
         <div>Account Inactive</div>
         <div>
-          <IoClose className="text-[30px] text-primary " />
+          {/* <IoClose className="text-[30px] text-primary " /> */}
         </div>
       </div>
       <div className="p-2 text-justify">
