@@ -19,6 +19,7 @@ import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 
 import { setShowMenu } from "@/Redux/features/menuSlice";
+import Popup from "./Popup";
 
 const DashMenu = () => {
   const showMenu = useSelector((state) => state.data.menu.showMenu);
@@ -156,8 +157,6 @@ const DashMenu = () => {
 
   return (
     <div>
-      <Toaster />
-
       {/* For small screens */}
       {isSmallScreen ? (
         <div

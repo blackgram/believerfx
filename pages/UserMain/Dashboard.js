@@ -14,6 +14,7 @@ import TradingViewTickerTape from "@/components/TradingViewTickerTape";
 import DashMenu from "@/components/Dashboard/DashMenu";
 import Profile from "@/components/Dashboard/Profile";
 import { setIsSmallScreen } from "@/Redux/features/screenSizeSlice";
+import Funding from "@/components/Dashboard/Funding";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -67,6 +68,9 @@ const Dashboard = () => {
     case "Profile":
       componentToRender = <Profile />;
       break;
+    case "Funding":
+      componentToRender = <Funding />;
+      break;
     default:
       componentToRender = <DashMain />;
       break;
@@ -77,8 +81,8 @@ const Dashboard = () => {
       <DashNv />
       {componentToRender}
       {/* <DashMain /> */}
-      <Footer  />
-      <TradingViewTickerTape display='down' />
+      <Footer />
+      <TradingViewTickerTape display="down" />
     </div>
   );
 };

@@ -1,14 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import DashMenu from "./DashMenu";
 import countryList from "react-select-country-list";
 import Select from "react-select";
+import DashLayout from "./DashLayout";
 
 const Profile = () => {
-  const showMenu = useSelector((state) => state.data.menu.showMenu);
-  const isSmallScreen = useSelector(
-    (state) => state.data.screenSize.isSmallScreen
-  );
 
   const [isDisabled, setisDisabled] = useState(true);
   const [value, setValue] = useState("");
@@ -26,13 +21,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-100vh max-w-[100vw] w-full text-white bg-black flex relative">
-      {showMenu && <DashMenu />}
-      <div
-        className={`${
-          showMenu && !isSmallScreen ? "w-[80vw]" : "w-full"
-        }  transition-transform translate-x-0  duration-1000 ease `}
-      >
+    <DashLayout>
         <div className="p-4 lg:p-8">
           <div className="flex">
             <div className="w-full text-center font-medium text-[24px]">
@@ -44,7 +33,7 @@ const Profile = () => {
               <div>First Name</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="FirstName"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -54,7 +43,7 @@ const Profile = () => {
               <div>Last Name</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="LastName"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -64,7 +53,7 @@ const Profile = () => {
               <div>Username</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="Username"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -74,7 +63,7 @@ const Profile = () => {
               <div>Email</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="mail@email.com"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -84,7 +73,7 @@ const Profile = () => {
               <div>Phone number</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="phone number"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -94,7 +83,7 @@ const Profile = () => {
               <div>Address Line 1</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="Address Line 1"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -104,7 +93,7 @@ const Profile = () => {
               <div>Address Line 2</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="Address Line 2"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -114,7 +103,7 @@ const Profile = () => {
               <div>City</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="city"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -124,7 +113,7 @@ const Profile = () => {
               <div>Region</div>
               <input
                 type="text"
-                value=""
+                // value=""
                 placeholder="region"
                 className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
                 disabled={isDisabled}
@@ -158,8 +147,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </DashLayout>
   );
 };
 

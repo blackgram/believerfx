@@ -64,12 +64,7 @@ const DashNv = () => {
       <div className="flex items-center justify-center gap-2">
         <div className=""></div>
         <Link href="/UserMain/Dashboard">
-          <div className="text-black flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-md p-1 bg-primary ">
-            <div>Deposit</div>
-            <div>
-              <FaArrowRight size={"12px"} />
-            </div>
-          </div>
+          <div className=""><span className="text-primary font-bold text-[20px]">Believers</span><span className="italic text-secondary text-[20px]"> Fx</span></div>
         </Link>
       </div>
     </div>
