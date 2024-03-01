@@ -2,12 +2,17 @@ import React, { useState, useEffect, useMemo } from "react";
 import countryList from "react-select-country-list";
 import Select from "react-select";
 import DashLayout from "./DashLayout";
+import { useSelector } from "react-redux";
+
 
 const Profile = () => {
 
   const [isDisabled, setisDisabled] = useState(true);
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
+
+  const user = useSelector((state) => state.data.user.user);
+
 
   const changeHandler = (value) => {
     setValue(value);
@@ -22,7 +27,7 @@ const Profile = () => {
 
   return (
     <DashLayout>
-        <div className="p-4 lg:p-8">
+        <div className="px-4 py-6 lg:p-8">
           <div className="flex">
             <div className="w-full text-center font-medium text-[24px]">
               Profile
@@ -34,8 +39,8 @@ const Profile = () => {
               <input
                 type="text"
                 // value=""
-                placeholder="FirstName"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                placeholder={user.firstname}
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -44,8 +49,8 @@ const Profile = () => {
               <input
                 type="text"
                 // value=""
-                placeholder="LastName"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                placeholder={user.lastname}
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -54,8 +59,8 @@ const Profile = () => {
               <input
                 type="text"
                 // value=""
-                placeholder="Username"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                placeholder={user.username}
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -64,9 +69,9 @@ const Profile = () => {
               <input
                 type="text"
                 // value=""
-                placeholder="mail@email.com"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
-                disabled={isDisabled}
+                placeholder={user.email}
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
+                disabled={true}
               />
             </div>
             <div className="text-ash">
@@ -74,8 +79,8 @@ const Profile = () => {
               <input
                 type="text"
                 // value=""
-                placeholder="phone number"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                placeholder={user.phoneNumber}
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -85,7 +90,7 @@ const Profile = () => {
                 type="text"
                 // value=""
                 placeholder="Address Line 1"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -95,7 +100,7 @@ const Profile = () => {
                 type="text"
                 // value=""
                 placeholder="Address Line 2"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -105,7 +110,7 @@ const Profile = () => {
                 type="text"
                 // value=""
                 placeholder="city"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -115,7 +120,7 @@ const Profile = () => {
                 type="text"
                 // value=""
                 placeholder="region"
-                className="text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] "
+                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
@@ -126,7 +131,7 @@ const Profile = () => {
                 value={value}
                 onChange={changeHandler}
                 isDisabled={isDisabled}
-                className="text-ash bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw]"
+                className={`text-ash bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
               />
             </div>
             <div className="flex gap-2">

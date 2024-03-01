@@ -150,6 +150,7 @@ const Funding = () => {
                     >
                       Copy <FaRegCopy />
                     </div>
+                    <Toaster />
                   </div>
                   <div className=" text-justify lg:text-center text-ash pt-6">
                     Note: Once payment is complete, receipt of payment should be
@@ -188,7 +189,7 @@ const Funding = () => {
               ) : (
                 ""
               )}
-              <Toaster />
+              
             </div>
           </div>
         </div>

@@ -7,14 +7,15 @@ import gBtn from "../assets/google.png";
 import fBtn from "../assets/facebook.png";
 import star from "../assets/star.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth"; // Import the hook from the correct path
-import { auth } from "../components/firebaseConfig";
+import { auth, db } from "../components/firebaseConfig";
 import { useRouter } from "next/router";
 import { updateProfile } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 import { setLoading } from "@/Redux/features/userSlice";
 import { BarLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
-
+import Select from "react-select";
+import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -22,11 +23,55 @@ const SignUp = () => {
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastname] = useState("");
   const [userName, setUsername] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [leverage, setLeverage] = useState("");
 
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.data.user.isLoading)
+  const isLoading = useSelector((state) => state.data.user.isLoading);
+  const user = useSelector((state) => state.data.user.user);
 
   const router = useRouter();
+
+  const options = [
+    { value: "1.20", label: "1.20" },
+    { value: "1.25", label: "1.25" },
+    { value: "1.33", label: "1.33" },
+    { value: "1.50", label: "1.50" },
+    { value: "1.100", label: "1.100" },
+    { value: "1.200", label: "1.200" },
+    { value: "1.400", label: "1.400" },
+    { value: "1.500", label: "1.500" },
+  ];
+  const handleSelectChange = (selectedOption) => {
+    setLeverage(selectedOption.value);
+  };
+
+  const addUserToFirestore = async (
+    uid,
+    firstName,
+    lastName,
+    username,
+    phoneNumber,
+    leverage
+  ) => {
+    const userDocRef = doc(db, "Users", uid);
+
+    try {
+      await setDoc(userDocRef, {
+        userid: uid,
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        phoneNumber: phoneNumber,
+        leverage: leverage,
+      });
+
+      console.log("User data added to Firestore");
+    } catch (error) {
+      console.error("Error adding user data to Firestore: ", error);
+      // Handle the error as needed
+    }
+  };
 
   // Using the correct hook from react-firebase-hooks
   const [createUserWithEmailAndPassword] =
@@ -40,11 +85,18 @@ const SignUp = () => {
       const res = await createUserWithEmailAndPassword(email, password);
       if (res) {
         toast.success("Sign Up Successful. Redirecting...");
-        updateProfile(auth.currentUser, { displayName: firstName });
+        updateProfile(auth.currentUser, { displayName: userName });
         console.log({ res });
+        addUserToFirestore(
+          auth.currentUser.uid,
+          firstName,
+          lastName,
+          userName,
+          phoneNumber,
+          leverage
+        );
         router.push("/Login");
-      }
-      else{
+      } else {
         toast.error("Signup error");
         dispatch(setLoading(false));
       }
@@ -53,15 +105,8 @@ const SignUp = () => {
     }
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleFirstNameChange = (e) => {
-    setFirstname(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handleInputChange = (e, setValue) => {
+    setValue(e.target.value);
   };
 
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -103,46 +148,70 @@ const SignUp = () => {
         <form>
           <div className="inputs text-white flex flex-col  w-full md:w-[316px] p-2 text-[14px] gap-5 ">
             <div className="">
-              <div className="mb-2">First Name</div>
+              <div className="mb-1">First Name</div>
               <InputBtn
                 placeholder="Your first name"
                 type="text"
                 value={firstName}
-                onChange={handleFirstNameChange}
+                onChange={(e) => handleInputChange(e, setFirstname)}
               />
             </div>
             <div className="">
-              <div className="mb-2">Last Name</div>
+              <div className="mb-1">Last Name</div>
               <InputBtn
                 placeholder="Your last name"
                 type="text"
                 value={lastName}
+                onChange={(e) => handleInputChange(e, setLastname)}
               />
             </div>
             <div className="">
-              <div className="mb-2">User Name</div>
-              <InputBtn placeholder="Username" type="text" value={userName} />
+              <div className="mb-1">User Name</div>
+              <InputBtn
+                placeholder="Username"
+                type="text"
+                value={userName}
+                onChange={(e) => handleInputChange(e, setUsername)}
+              />
             </div>
             <div className="">
-              <div className="mb-2">Email Address</div>
+              <div className="mb-1">Phone Number</div>
               <InputBtn
-                onChange={handleEmailChange}
+                onChange={(e) => handleInputChange(e, setPhoneNumber)}
+                placeholder="+1 2345678"
+                type="number"
+                value={email}
+              />
+            </div>
+            <div className="">
+              <Select
+                options={options}
+                className="text-black w-full"
+                onChange={handleSelectChange}
+                value={leverage}
+                placeholder="Select Leverage"
+              />
+            </div>
+            <div className="">
+              <div className="mb-1">Email Address</div>
+              <InputBtn
+                onChange={(e) => handleInputChange(e, setEmail)}
                 placeholder="youremail@mail.com"
                 type="email"
                 value={email}
               />
             </div>
             <div>
-              <div className="mb-2">Password</div>
+              <div className="mb-1">Password</div>
               <InputBtn
                 placeholder="Password"
                 type="password"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={(e) => handleInputChange(e, setPassword)}
               />
             </div>
             <div>
-              <div className="mb-2">Confirm Password</div>
+              <div className="mb-1">Confirm Password</div>
               <InputBtn
                 placeholder="Confirm password"
                 type="password"
@@ -151,7 +220,7 @@ const SignUp = () => {
               {error && <div className="text-red-500 py-2">{error}</div>}
             </div>
           </div>
-          {/* user inputs start */}
+          {/* user inputs end */}
 
           <div className="text-white w-full md:w-[316px] p-4 flex justify-between">
             <div className="flex items-center gap-2">
@@ -165,7 +234,7 @@ const SignUp = () => {
               className="bg-primary rounded-full py-2 min-h-[40px] w-full md:w-[316px] md:px-0 p-4 flex items-center justify-center"
               onClick={handleSignUp}
             >
-              {isLoading ? <BarLoader /> : 'Sign up'}
+              {isLoading ? <BarLoader /> : "Sign up"}
             </button>
           </div>
         </form>

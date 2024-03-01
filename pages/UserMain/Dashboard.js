@@ -1,20 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
 import { useDispatch, useSelector } from "react-redux";
 import DashMain from "@/components/Dashboard/DashMain";
-import { auth } from "../../components/firebaseConfig";
+import { auth, db } from "../../components/firebaseConfig";
 import { loginUser, setLoading } from "@/Redux/features/userSlice";
 import DashNv from "@/components/Dashboard/DashNav";
 import { setShowMenu } from "@/Redux/features/menuSlice";
-
-import { Footer } from "@/components/Home";
-import TradingViewTickerTape from "@/components/TradingViewTickerTape";
-import DashMenu from "@/components/Dashboard/DashMenu";
-import Profile from "@/components/Dashboard/Profile";
 import { setIsSmallScreen } from "@/Redux/features/screenSizeSlice";
 import Funding from "@/components/Dashboard/Funding";
+import { Toaster } from "react-hot-toast";
+import { doc, getDoc } from "firebase/firestore"; // Import Firestore functions
+import Profile from "@/components/Dashboard/Profile";
+import { Footer } from "@/components/Home";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -28,6 +26,25 @@ const Dashboard = () => {
   const isSmallScreen = useSelector(
     (state) => state.data.screenSize.isSmallScreen
   );
+  const [authUser, setAuthUser] = useState(null);
+
+  const getUserDataFromFirestore = async (uid) => {
+    try {
+      const docRef = doc(db, "Users", uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log(docSnap);
+        return docSnap.data();
+      } else {
+        console.error("User document not found");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      return null;
+    }
+  };
 
   useEffect(() => {
     const handleResize = () =>
@@ -39,7 +56,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     isSmallScreen ? dispatch(setShowMenu(false)) : dispatch(setShowMenu(true));
-  }, []);
+  }, [isSmallScreen, dispatch]);
 
   useEffect(() => {
     !user ? router.push("/Login") : null;
@@ -48,6 +65,7 @@ const Dashboard = () => {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
+        setAuthUser(authUser)
         dispatch(
           loginUser({
             uid: authUser.uid,
@@ -62,6 +80,34 @@ const Dashboard = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const docRef = doc(db, "Users", authUser.uid);
+        const docSnap = await getDoc(docRef);
+  
+        if (docSnap.exists()) {
+          dispatch(
+            loginUser({
+              ...user,
+              firstname: docSnap.data().firstName,
+              lastname: docSnap.data().lastName,
+              phoneNumber: docSnap.data().phoneNumber,
+            })
+          );
+        } else {
+          console.error("User document not found");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+  
+    if (authUser) {
+      fetchUserData();
+    }
+  }, [authUser]);
+  
   let componentToRender;
 
   switch (activeDashElement) {
@@ -79,10 +125,10 @@ const Dashboard = () => {
   return (
     <div className="overflow-hidden">
       <DashNv />
+      <Toaster />
       {componentToRender}
-      {/* <DashMain /> */}
       <Footer />
-      <TradingViewTickerTape display="down" />
+      {/* Footer and TradingViewTickerTape components go here */}
     </div>
   );
 };

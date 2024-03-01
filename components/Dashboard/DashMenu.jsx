@@ -57,24 +57,21 @@ const DashMenu = () => {
     };
   }, [dropdownRef]);
 
-  const dismissToast = () => toast.dismiss();
 
   const handleUnauthorizedPage = () => {
     toast.custom((t) => (
-      <div className=" bg-nb3 flex flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]">
+      <div className=" bg-nb3 flex text-white flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]">
         <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
-          <div>Account Inactive</div>  
-          <div>
-            <IoClose
-              className="text-[30px] text-primary "
-            />
+          <div>Account Inactive</div>
+          <div className="text-[30px] text-primary cursor-pointer " onClick={() => toast.dismiss(t.id)}>
+            <IoClose />
           </div>
         </div>
         <div className="p-2 text-justify">
-          Your Account is currently inactive, please head to the &quot;funding&quot; page,
-          select a plan and fund your account at which point you will be able to
-          access this page. If you are experiencing any difficulties please
-          contact support.
+          Your Account is currently inactive, please head to the
+          &quot;funding&quot; page, select a plan and fund your account at which
+          point you will be able to access this page. If you are experiencing
+          any difficulties please contact support.
         </div>
       </div>
     ));
@@ -119,10 +116,28 @@ const DashMenu = () => {
       link: "/UserMain/Dashboard",
       active: false,
       icon: <MdCurrencyExchange />,
+      dropdownItems: [
+        {
+          id: 1,
+          title: "Deposit",
+          link: "/UserMain/Dashboard",
+          active: false,
+          icon: <MdOutlinePsychology />,
+          onclick: handleUnauthorizedPage,
+        },
+        {
+          id: 2,
+          title: "Withdraw",
+          link: "/UserMain/Dashboard",
+          active: false,
+          icon: <FaArrowTrendUp />,
+          onclick: handleUnauthorizedPage,
+        },
+      ],
       onclick: handleItemClick,
     },
     {
-      id: 5,
+      id: 6,
       title: "Withdrawal",
       link: "/UserMain/Dashboard",
       active: false,
@@ -222,6 +237,7 @@ const DashMenu = () => {
                 item.active == true ? "text-primary" : "text-white"
               }`}
             >
+              
               <Link href={item.link}>
                 <div
                   className={`flex items-center gap-1 cursor-pointer ${

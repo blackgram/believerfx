@@ -62,10 +62,10 @@ const DashMain = () => {
 
   return (
     <DashLayout>
-      <div className="p-4 lg:p-8">
+      <div className="px-4 py-6 lg:p-8">
         <div className="flex">
           <div className="w-full text-center font-medium text-[24px]">
-            Welcome, {user ? <span>{user.username}</span> : ""}
+            Welcome, {user ? <span>{user.firstname}</span> : ""}
           </div>
           {/* <button
               type="submit"

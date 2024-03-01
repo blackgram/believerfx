@@ -9,7 +9,7 @@ const DashLayout = ({ children }) => {
   );
 
   return (
-    <div className="min-h-100vh max-w-[100vw] w-full text-white bg-black flex relative">
+    <div className="min-h-100vh pt-[3rem] max-w-[100vw] w-full text-white bg-black flex relative">
       {showMenu && <DashMenu />}
       <div
         className={`${
