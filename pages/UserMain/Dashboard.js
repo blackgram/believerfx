@@ -14,6 +14,8 @@ import { doc, getDoc } from "firebase/firestore"; // Import Firestore functions
 import Profile from "@/components/Dashboard/Profile";
 import { Footer } from "@/components/Home";
 import Withdrawal from "@/components/Dashboard/Withdrawal";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const router = useRouter();
@@ -130,6 +132,7 @@ const Dashboard = () => {
     <div className="overflow-hidden">
       <DashNv />
       <Toaster />
+      <ToastContainer />
       {componentToRender}
       <Footer />
       {/* Footer and TradingViewTickerTape components go here */}

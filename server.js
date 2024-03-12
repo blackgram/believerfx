@@ -7,8 +7,17 @@ const PORT = 3001;
 const NEWS_API_KEY = NEXT_PUBLIC_NEWS_API_KEY; 
 const cors = require('cors')
 
-app.use(cors()); 
 app.use(express.json());
+
+const corsOptions = {
+  origin: '*', // Allow all origins for development, adjust for production
+  methods: ['GET', 'POST'], // Allow GET and POST requests
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow Content-Type and Authorization headers
+  credentials: true, // Allow credentials (e.g., cookies)
+  exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'], // Expose additional headers if needed
+};
+
+app.use(cors(corsOptions));
 
 app.get('/fetch-news', async (req, res) => {
   try {
