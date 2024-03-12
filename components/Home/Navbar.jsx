@@ -1,52 +1,69 @@
 import React, { useState, useRef, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaTimes } from "react-icons/fa";
 import Link from "next/link";
-import { MdOutlineClose } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveMainMenu } from "@/Redux/features/activeMainMenuSlice";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const activeMenu = useSelector((state) => state.data.activeMainMenu.activeMenu);
+
+
+  const handleMenu = (element) => {
+    dispatch(setActiveMainMenu(element));
+    setShowDropdown(false)
+  };
+
+  const menuItems = [
+    { id: 1, title: "Home", active: activeMenu == "Home" ? true : false, onclick: handleMenu },
+    { id: 2, title: "Markets", active: activeMenu == "Markets" ? true : false, onclick: handleMenu },
+    { id: 3, title: "About Us", active: activeMenu == "About Us" ? true : false, onclick: handleMenu },
+    { id: 4, title: "FAQ", active: activeMenu == "FAQ" ? true : false, onclick: handleMenu },
+    { id: 5, title: "Careers", active: activeMenu == "Careers" ? true : false, onclick: handleMenu },
+    { id: 6, title: "Contact Us", active: activeMenu == "Contact Us" ? true : false, onclick: handleMenu },
+  ];
+
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    // close the dropdown when user clicks outside the menu
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowDropdown(false);
+      } else if (event.target.classList.contains("dropdown-item")) {
+        setShowDropdown(false);
       }
     };
-
+  
     document.addEventListener("mousedown", handleClickOutside);
-
+  
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
 
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const menuItems = [
-    { id: 1, title: "Home", link: "/", active: true },
-    { id: 2, title: "Markets", link: "/", active: false },
-    { id: 3, title: "About Us", link: "/", active: false },
-    { id: 4, title: "FAQ", link: "/", active: false },
-    { id: 5, title: "Careers", link: "/", active: false },
-    { id: 6, title: "Contact Us", link: "/", active: false },
-  ];
 
   return (
     <div className="bg-black z-50 w-full flex justify-between items-center px-4 py-4 font-poppins text-[14px] font-bold fixed">
       <div className="flex items-center justify-center gap-2">
-        <div ref={dropdownRef}>
-          <GiHamburgerMenu
-            size={"2rem"}
-            onClick={() => (setShowDropdown(!showDropdown), toggleMenu)}
-            className="text-primary"
-          />
+        <div >
+        {showDropdown ? (
+            <FaTimes
+              size={"2rem"}
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="text-primary cursor-pointer"
+            />
+          ) : (
+            <GiHamburgerMenu
+              size={"2rem"}
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="text-primary cursor-pointer"
+            />
+          )}
         </div>
         <div className="logo">
           <Link href="/">
@@ -58,6 +75,7 @@ const Navbar = () => {
       </div>
 
       <div
+      ref={dropdownRef}
         active={showDropdown}
         className={`${
           showDropdown ? "flex" : "none"
@@ -69,12 +87,13 @@ const Navbar = () => {
       >
         {menuItems.map((item, i) => (
           <div
-            key={item.i}
+            key={item.id}
+            onClick={() => item.onclick(item.title)}
             className={`p-2 text-[16px]  ${
               item.active == true ? "text-primary" : "text-white"
             }`}
           >
-            <Link href={item.link}>{item.title}</Link>
+              <div>{item.title}</div>
           </div>
         ))}
       </div>

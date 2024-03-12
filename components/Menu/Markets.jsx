@@ -67,7 +67,7 @@ const Markets = () => {
             </button>
           </div>
         </div>
-        <div className="widgets flex lg:pb-[5rem] flex-col lg:flex-row gap-4 h-full ">
+        <div className="widgets flex lg:pb-[5rem] flex-col lg:flex-row xl:flex-col gap-4 h-full ">
           <MarketTV />
           <NewsTV />
         </div></>}
