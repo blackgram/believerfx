@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import { doc, getDoc } from "firebase/firestore"; // Import Firestore functions
 import Profile from "@/components/Dashboard/Profile";
 import { Footer } from "@/components/Home";
+import Withdrawal from "@/components/Dashboard/Withdrawal";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -65,7 +66,7 @@ const Dashboard = () => {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        setAuthUser(authUser)
+        setAuthUser(authUser);
         dispatch(
           loginUser({
             uid: authUser.uid,
@@ -85,7 +86,7 @@ const Dashboard = () => {
       try {
         const docRef = doc(db, "Users", authUser.uid);
         const docSnap = await getDoc(docRef);
-  
+
         if (docSnap.exists()) {
           dispatch(
             loginUser({
@@ -102,12 +103,12 @@ const Dashboard = () => {
         console.error("Error fetching user data:", error);
       }
     };
-  
+
     if (authUser) {
       fetchUserData();
     }
   }, [authUser]);
-  
+
   let componentToRender;
 
   switch (activeDashElement) {
@@ -116,6 +117,9 @@ const Dashboard = () => {
       break;
     case "Funding":
       componentToRender = <Funding />;
+      break;
+    case "Withdrawal":
+      componentToRender = <Withdrawal />;
       break;
     default:
       componentToRender = <DashMain />;

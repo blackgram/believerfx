@@ -10,8 +10,14 @@ const Profile = () => {
   const [isDisabled, setisDisabled] = useState(true);
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
-
   const user = useSelector((state) => state.data.user.user);
+
+  const [firstName, setFirstname] = useState(user.firstname);
+  const [lastName, setLastname] = useState(user.lastname);
+  const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
+  const [leverage, setLeverage] = useState("");
+
+
 
 
   const changeHandler = (value) => {
@@ -34,11 +40,31 @@ const Profile = () => {
             </div>
           </div>
           <div className="w-full flex flex-col items-center justify-center gap-4 py-2">
+              <div className="text-ash">
+                <div>Username</div>
+                <input
+                  type="text"
+                  // value=""
+                  placeholder={user.username}
+                  className={`text-white bg-nb3 rounded-md p-2 w-[80vw] lg:w-[70vw] `}
+                  disabled={true}
+                />
+              </div>
+              <div className="text-ash">
+                <div>Email</div>
+                <input
+                  type="text"
+                  // value=""
+                  placeholder={user.email}
+                  className={`text-white bg-nb3 rounded-md p-2  w-[80vw] lg:w-[70vw] `}
+                  disabled={true}
+                />
             <div className="text-ash">
               <div>First Name</div>
               <input
                 type="text"
-                // value=""
+                value={firstName}
+                onChange={(e) => setFirstname(e.target.value)}
                 placeholder={user.firstname}
                 className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
@@ -48,37 +74,20 @@ const Profile = () => {
               <div>Last Name</div>
               <input
                 type="text"
-                // value=""
+                value={lastName}
+                onChange={(e) => setLastname(e.target.value)}
                 placeholder={user.lastname}
                 className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}
               />
             </div>
-            <div className="text-ash">
-              <div>Username</div>
-              <input
-                type="text"
-                // value=""
-                placeholder={user.username}
-                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
-                disabled={isDisabled}
-              />
-            </div>
-            <div className="text-ash">
-              <div>Email</div>
-              <input
-                type="text"
-                // value=""
-                placeholder={user.email}
-                className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
-                disabled={true}
-              />
             </div>
             <div className="text-ash">
               <div>Phone number</div>
               <input
                 type="text"
-                // value=""
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder={user.phoneNumber}
                 className={`text-white bg-nb3 rounded-md p-2 ${!isDisabled ? 'border border-white': ''} w-[80vw] lg:w-[70vw] `}
                 disabled={isDisabled}

@@ -19,6 +19,7 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
           'hero-pattern': "url('../assets/bgpattern.png')",
+          'forex': "url('../assets/forex.jpg')",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
@@ -28,7 +29,9 @@ module.exports = {
         primary: '#9AD953',
         secondary: '#F5C06D',
         ash: 'rgb(182, 182, 182)',
+        nb1: 'rgb(52, 56, 57)',
         nb3: 'rgb(31, 31, 31)',
+        nb4: 'rgb(20, 20, 20)',
         silver: '#C0C0C0',
         gold: '#FFD700',
       },

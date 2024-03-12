@@ -116,19 +116,20 @@ const Login = () => {
             </div>
           </Link>
         </div>
-        <div className="text-ash w-full flex items-center text-[14px] mt-3">
+        {/* <div className="text-ash w-full flex items-center text-[14px] mt-3">
           <div className="h-[2px] w-full bg-nb3" />
           <div className="w-full text-center">Or Sign in with</div>
           <div className="h-[2px] w-full bg-nb3" />
-        </div>
-        <div className="flex gap-4 p-4">
+          </div>
+          <div className="flex gap-4 p-4">
           <Link href="/">
-            <Image src={gBtn} sizes="100vw" />
+          <Image src={gBtn} sizes="100vw" />
           </Link>
           <Link href="/">
-            <Image src={fBtn} sizes="100vw" />
+          <Image src={fBtn} sizes="100vw" />
           </Link>
-        </div>
+        </div> */}
+        <div className="h-[2px] w-full bg-nb3" />
         <div className="text-ash p-4 pb-6">
           Don&apos;t have an account?
           <span className="text-primary">

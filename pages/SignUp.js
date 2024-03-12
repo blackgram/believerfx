@@ -19,12 +19,13 @@ import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
+  const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastname] = useState("");
-  const [userName, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [leverage, setLeverage] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.data.user.isLoading);
@@ -79,6 +80,26 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+
+    if (
+      !firstName ||
+      !lastName ||
+      !userName ||
+      !phoneNumber ||
+      !leverage ||
+      !email ||
+      !password ||
+      !confirmPassword
+    ) {
+      toast.error("All fields are required");
+      return;
+    }
+
+    if (!isChecked) {
+      toast.error("You need to accept the privacy poilcy");
+      return;
+    }
+
     dispatch(setLoading(true));
 
     try {
@@ -102,11 +123,25 @@ const SignUp = () => {
       }
     } catch (error) {
       console.error("Error creating user:", error.message);
+
+      if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email address");
+      } else if (error.code === "auth/email-already-in-use") {
+        toast.error("Email address is already in use");
+      } else {
+        toast.error(`Signup error: ${error.message}`);
+      }
+
+      dispatch(setLoading(false));
     }
   };
 
   const handleInputChange = (e, setValue) => {
     setValue(e.target.value);
+  };
+
+  const handleRadioChange = () => {
+    setIsChecked(!isChecked);
   };
 
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -146,7 +181,7 @@ const SignUp = () => {
 
         {/* user inputs start */}
         <form>
-          <div className="inputs text-white flex flex-col  w-full md:w-[316px] p-2 text-[14px] gap-5 ">
+          <div className="inputs text-white flex flex-col  w-full md:w-[316px] p-2 text-[14px] gap-5  ">
             <div className="">
               <div className="mb-1">First Name</div>
               <InputBtn
@@ -188,7 +223,7 @@ const SignUp = () => {
                 options={options}
                 className="text-black w-full"
                 onChange={handleSelectChange}
-                value={leverage}
+                value={leverage.value}
                 placeholder="Select Leverage"
               />
             </div>
@@ -224,7 +259,7 @@ const SignUp = () => {
 
           <div className="text-white w-full md:w-[316px] p-4 flex justify-between">
             <div className="flex items-center gap-2">
-              <input type="checkbox" onChange={() => console.log("Working")} />
+              <input type="checkbox" onChange={handleRadioChange} />
               <div>I accept the privacy policy</div>
             </div>
           </div>
@@ -239,7 +274,7 @@ const SignUp = () => {
           </div>
         </form>
 
-        <div className="text-ash w-full flex items-center text-[14px] mt-3">
+        {/* <div className="text-ash w-full flex items-center text-[14px] mt-3">
           <div className="h-[2px] w-full bg-nb3" />
           <div className="w-full text-center">Or Sign up with</div>
           <div className="h-[2px] w-full bg-nb3" />
@@ -251,7 +286,9 @@ const SignUp = () => {
           <Link href="/">
             <Image src={fBtn} sizes="100vw" />
           </Link>
-        </div>
+        </div> */}
+        <div className="h-[2px] w-full bg-nb3" />
+
         <div className="text-ash p-4 pb-6">
           Already have an account?
           <span className="text-primary">

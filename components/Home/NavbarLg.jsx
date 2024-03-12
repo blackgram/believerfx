@@ -1,16 +1,26 @@
 import React, { useState, useRef, useEffect } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveMainMenu } from "@/Redux/features/activeMainMenuSlice";
 
 const NavbarLg = () => {
+  const dispatch = useDispatch();
+
+  const activeMenu = useSelector((state) => state.data.activeMainMenu.activeMenu);
+
+
+  const handleMenu = (element) => {
+    dispatch(setActiveMainMenu(element));
+  };
+
   const menuItems = [
-    { id: 1, title: "Home", link: "/", active: true },
-    { id: 2, title: "Markets", link: "/", active: false },
-    { id: 3, title: "About Us", link: "/", active: false },
-    { id: 4, title: "FAQ", link: "/", active: false },
-    { id: 5, title: "Careers", link: "/", active: false },
-    { id: 6, title: "Contact Us", link: "/", active: false },
+    { id: 1, title: "Home", active: activeMenu == "Home" ? true : false, onclick: handleMenu },
+    { id: 2, title: "Markets", active: activeMenu == "Markets" ? true : false, onclick: handleMenu },
+    { id: 3, title: "About Us", active: activeMenu == "About Us" ? true : false, onclick: handleMenu },
+    { id: 4, title: "FAQ", active: activeMenu == "FAQ" ? true : false, onclick: handleMenu },
+    { id: 5, title: "Careers", active: activeMenu == "Careers" ? true : false, onclick: handleMenu },
+    { id: 6, title: "Contact Us", active: activeMenu == "Contact Us" ? true : false, onclick: handleMenu },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,17 +39,23 @@ const NavbarLg = () => {
     };
 
     // Attach the event listener when the component mounts
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Clean up the event listener when the component unmounts
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <div className="flex items-center justify-evenly z-50">
-      <div className={` ${ isScrolled? 'fixed top-0 w-full h-[5rem] ' : 'absolute top-[2rem] h-[70px] w-[58rem]'} transition-transform duration-500 ease-in-out bg-black flex justify-between items-center px-2 py-4 font-poppins text-[18px] font-medium`}>
+    <div className="flex items-center justify-evenly z-50 relative">
+      <div
+        className={` ${
+          isScrolled || activeMenu !== 'Home'
+            ? "fixed top-0 w-full h-[5rem] "
+            : "absolute top-[2rem] h-[70px] w-[58rem]"
+        } transition-transform duration-500 ease-in-out bg-black flex justify-between items-center px-2 py-4 font-poppins text-[18px] font-medium`}
+      >
         <div>
           <div className="font-bold text-[40px] text-primary p-4">
             B<span className="italic text-secondary text-[40px]">fx</span>
@@ -50,11 +66,11 @@ const NavbarLg = () => {
           {menuItems.map((item, i) => (
             <div
               key={item.i}
-              className={`p-3 text-[18px] hover:text-primary  ${
-                item.active == true ? "text-primary" : "text-white" 
+              className={`p-3 cursor-pointer text-[18px] hover:text-primary  ${
+                item.active == true ? "text-primary" : "text-white"
               }`}
             >
-              <Link href={item.link}>{item.title}</Link>
+              <div onClick={() => item.onclick(item.title)}>{item.title}</div>
             </div>
           ))}
         </div>
