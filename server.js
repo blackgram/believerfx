@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 
 const app = express();
 const PORT = 3001;
-const NEWS_API_KEY = '828c109c04764c629d50554e625ed2a3'; 
+const NEWS_API_KEY = NEXT_PUBLIC_NEWS_API_KEY; 
 const cors = require('cors')
 
 app.use(cors()); 
