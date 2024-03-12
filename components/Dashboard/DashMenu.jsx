@@ -17,7 +17,7 @@ import { handleLogout } from "./AuthUtils";
 import { auth } from "../firebaseConfig";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 import { setShowMenu } from "@/Redux/features/menuSlice";
