@@ -3,7 +3,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const NEWS_API_KEY = NEXT_PUBLIC_NEWS_API_KEY; 
 const cors = require('cors')
 
