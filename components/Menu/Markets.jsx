@@ -6,6 +6,8 @@ import MarketTV from "./TradingViewWidgets/MarketTV";
 import NewsTV from "./TradingViewWidgets/NewsTV";
 import { DotLoader } from "react-spinners";
 
+
+
 const Markets = () => {
   const marketData = useSelector((state) => state.data.marketNews.marketData);
   const [articlesToShow, setArticlesToShow] = useState(5);
