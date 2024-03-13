@@ -25,36 +25,36 @@ const Home = () => {
 
   const apiKey = process.env.NEWS_API_KEY;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
 
-        //newsapi won't allow me use their data for production lol
+  //       //newsapi won't allow me use their data for production lol
 
-        // const currentDate = new Date().toISOString().split("T")[0];
-        // const oneMonthDate = new Date();
-        // oneMonthDate.setMonth(oneMonthDate.getMonth() - 1);
-        // const newOneMonthDate = oneMonthDate.toISOString().split("T")[0];
+  //       // const currentDate = new Date().toISOString().split("T")[0];
+  //       // const oneMonthDate = new Date();
+  //       // oneMonthDate.setMonth(oneMonthDate.getMonth() - 1);
+  //       // const newOneMonthDate = oneMonthDate.toISOString().split("T")[0];
 
-        // const response = await fetch(
-        //   `https://newsapi.org/v2/everything?q=bitcoin|crypto|trading|ethereum|stock&from=${newOneMonthDate}&to=${currentDate}&language=en&sortBy=relevancy&page=1&apiKey=828c109c04764c629d50554e625ed2a3`
-        // );
-        // const data = await response.json();
-        // console.log(data);
-        dispatch(setMarketData(hardMarketData));
+  //       // const response = await fetch(
+  //       //   `https://newsapi.org/v2/everything?q=bitcoin|crypto|trading|ethereum|stock&from=${newOneMonthDate}&to=${currentDate}&language=en&sortBy=relevancy&page=1&apiKey=828c109c04764c629d50554e625ed2a3`
+  //       // );
+  //       // const data = await response.json();
+  //       // console.log(data);
+  //       dispatch(setMarketData(hardMarketData));
 
-        if (response.data == "ok") {
-          dispatch(setLoadingMarketdata(false));
-        } else {
-          console.error("Error fetching data. Status:", response.status);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  //       if (response.data == "ok") {
+  //         dispatch(setLoadingMarketdata(false));
+  //       } else {
+  //         console.error("Error fetching data. Status:", response.status);
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   let componentTorender;
 

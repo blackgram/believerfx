@@ -5,11 +5,12 @@ import MenuLayout from "./MenuLayout";
 import MarketTV from "./TradingViewWidgets/MarketTV";
 import NewsTV from "./TradingViewWidgets/NewsTV";
 import { DotLoader } from "react-spinners";
+import hardMarketData from "./hardMarketData";
 
 
 
 const Markets = () => {
-  const marketData = useSelector((state) => state.data.marketNews.marketData);
+  const marketData = hardMarketData;
   const [articlesToShow, setArticlesToShow] = useState(5);
 
 
