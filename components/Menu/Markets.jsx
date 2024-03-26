@@ -5,7 +5,8 @@ import MenuLayout from "./MenuLayout";
 import MarketTV from "./TradingViewWidgets/MarketTV";
 import NewsTV from "./TradingViewWidgets/NewsTV";
 import { DotLoader } from "react-spinners";
-import hardMarketData from "./hardMarketData";
+import {hardMarketData} from "./Data";
+import Link from "next/link";
 
 
 
@@ -32,14 +33,14 @@ const Markets = () => {
 
   return (
     <MenuLayout>
-      <div className="xl:px-[7rem]  py-[2rem] xl:py-[7rem] bg-nb4 flex flex-col xl:flex-row items-center xl:items-start justify-center  w-full ">
+      <div className="xl:px-[7rem] px-4  py-[2rem] xl:py-[7rem] bg-nb4 flex flex-col xl:flex-row items-center xl:items-start justify-center  w-full ">
         {!marketData? <div className="min-h-[50vh] flex justify-center items-center "><DotLoader size={150} color='#9AD953' className=" p-4 rounded-lg" /></div> : <><div className="text-white px-4 xl:px-10 ">
           {marketData
             .filter((article) => article.urlToImage)
             .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
             .slice(0, articlesToShow)
             .map((article, i) => (
-              <div
+              <Link href={article.url}
                 key={i}
                 className=" cursor-pointer md:p-4  bg-nb3 hover:bg-primary hover:text-black my-4 rounded-lg flex flex-col md:flex-row gap-4 text-ash text-[12px] lg:text-[16px]"
               >
@@ -58,7 +59,7 @@ const Markets = () => {
                     <div>Read more {'>>>'}</div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           <div className="w-full flex justify-center my-8">
             <button
@@ -70,7 +71,7 @@ const Markets = () => {
             </button>
           </div>
         </div>
-        <div className="widgets flex lg:pb-[5rem] flex-col lg:flex-row xl:flex-col gap-4 h-full ">
+        <div className="widgets flex justify-center items-center w-[350px] lg:pb-[5rem] flex-col lg:flex-row xl:flex-col gap-4 ">
           <MarketTV />
           <NewsTV />
         </div></>}

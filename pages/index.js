@@ -9,7 +9,8 @@ import {
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Header, Footer } from "../components/Home";
-import hardMarketData from "@/components/Menu/hardMarketData";
+import hardMarketData from "@/components/Menu/Data";
+import Careers from "@/components/Menu/Careers";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,9 @@ const Home = () => {
       break;
     case "Markets":
       componentTorender = <Markets />;
+      break;
+    case "Careers" || "About Us":
+      componentTorender = <Careers />;
       break;
     default:
       componentTorender = <HomePage />;

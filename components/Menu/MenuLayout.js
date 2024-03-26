@@ -1,12 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveMainMenu } from "@/Redux/features/activeMainMenuSlice";
+import { useRouter } from "next/router";
 
-const MenuLayout = ({ children}) => {
+const MenuLayout = ({back, children}) => {
+  const router = useRouter()
   const dispatch = useDispatch();
   const activeMenu = useSelector(
     (state) => state.data.activeMainMenu.activeMenu
   );
+
+  let backLink
+  back? backLink = back : backLink = "Home";
 
   return (
     <div className="min-h-screen pt-[6rem]">
@@ -15,9 +20,12 @@ const MenuLayout = ({ children}) => {
         <div className="flex gap-2 font-semibold">
           <span
             className="cursor-pointer"
-            onClick={() => dispatch(setActiveMainMenu("Home"))}
+            onClick={() => {
+            dispatch(setActiveMainMenu(backLink));
+            router.push('/')
+          }}
           >
-            Home
+            {backLink}
           </span>
           <span className="text-primary">{">>>"}</span>
           <span className="text-primary">{activeMenu}</span>

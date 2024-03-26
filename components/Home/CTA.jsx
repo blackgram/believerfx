@@ -5,10 +5,18 @@ import Image from "next/image";
 import ctaImg from "../../assets/trade_on.png";
 import coin from '../../assets/coin.png'
 import Link from "next/link";
+import { useInView } from "react-intersection-observer";
+
 
 const CTA = () => {
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
-    <div className="bg-black p-4 z-0 lg:py-[8rem] lg:flex lg:items-center lg:justify-evenly relative">
+    <div ref={ref} className="bg-black p-4 z-0 lg:py-[8rem] lg:flex lg:items-center lg:justify-evenly relative">
       <div className="md:max-w-[50vw] ">
         <div className=" mb-5 text-secondary font-bold text-headtext text-[18px] md:text-[20px] lg:text-[24px] ">
           Trade On Our
@@ -49,7 +57,7 @@ const CTA = () => {
           </div>
         </Link>
       </div>
-      <div className="md:flex md:items-center md:justify-center">
+      <div className={ `md:flex md:items-center md:justify-center ${inView? 'opacity-100' : 'opacity-50'} transition-all duration-1000 `}>
         <Image
           src={ctaImg}
           alt="call to action image"

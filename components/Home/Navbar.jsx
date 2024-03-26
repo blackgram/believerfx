@@ -22,7 +22,6 @@ const Navbar = () => {
     { id: 1, title: "Home", active: activeMenu == "Home" ? true : false, onclick: handleMenu },
     { id: 2, title: "Markets", active: activeMenu == "Markets" ? true : false, onclick: handleMenu },
     { id: 3, title: "About Us", active: activeMenu == "About Us" ? true : false, onclick: handleMenu },
-    { id: 4, title: "FAQ", active: activeMenu == "FAQ" ? true : false, onclick: handleMenu },
     { id: 5, title: "Careers", active: activeMenu == "Careers" ? true : false, onclick: handleMenu },
     { id: 6, title: "Contact Us", active: activeMenu == "Contact Us" ? true : false, onclick: handleMenu },
   ];

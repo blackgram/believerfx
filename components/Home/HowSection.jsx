@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import Image from "next/image";
 import download from "../../assets/download.png";
 import upload from "../../assets/upload.png";
@@ -6,17 +6,25 @@ import fprofit from "../../assets/financial-profit.png";
 import ladypic from "../../assets/why_trade.png";
 import star from "../../assets/star.png";
 import sun from "../../assets/sun.png";
+import { useInView } from "react-intersection-observer";
 
 const HowSection = () => {
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.25,
+  });
+
+
   return (
     <div className="w-full h-full bg-secondary flex flex-col items-center justify-center px-2 pt-2 ">
       <div className="text-headtext text-[36px] font-bold pt-7">
         How it Works
       </div>
       <div className="w-[60px] h-[5px] bg-black mb-5" />
-      <div className=" flex flex-col items-center justify-center md:flex-row md:justify-between md:items-center">
-        <div className="flex flex-col gap-4  md:px-2 md:pb-4 lg:w-[50vw]  ">
-          <div className="flex gap-6 bg-[#c29651] max-w-[21rem] lg:gap-12 lg:max-w-[45rem] text-[18px] items-center p-4 rounded-md">
+      <div ref={ref} className=" flex flex-col items-center justify-center md:flex-row md:justify-between md:items-center">
+        <div className={`flex flex-col gap-4  md:px-2 md:pb-4 lg:w-[50vw]`}>
+          <div className={`flex gap-6 bg-[#c29651] max-w-[21rem] ${inView ? 'translate-x-0 opacity-100' : ' -translate-x-80 opacity-0'} transition-all  duration-500 lg:gap-12 lg:max-w-[45rem] text-[18px] items-center p-4 rounded-md`}>
             <div className="font-bold lg:text-[20px] w-16 ">
               <div>Deposit</div>
               <Image
@@ -32,8 +40,8 @@ const HowSection = () => {
               systems.
             </div>
           </div>
-          <div className="flex gap-6 lg:gap-12 text-[18px] bg-[#c29651] max-w-[21rem] lg:max-w-[45rem] p-4 items-center rounded-md">
-            <div className="font-bold w-16 lg:text-[20px]">
+          <div className={`flex gap-6 bg-[#c29651] max-w-[21rem] ${inView ? 'translate-x-0 opacity-100' : ' -translate-x-80 opacity-0'} transition-all duration-1000 lg:gap-12 lg:max-w-[45rem] text-[18px] items-center p-4 rounded-md`}>
+          <div className="font-bold w-16 lg:text-[20px]">
               <div>Trade</div>
               <Image
                 src={fprofit}
@@ -48,7 +56,7 @@ const HowSection = () => {
               you profit. Or Self Trade if you feel confident. There&apos;s no limit!.
             </div>
           </div>
-          <div className="flex gap-6 lg:gap-12 text-[18px] bg-[#c29651] max-w-[21rem] p-4 items-center lg:max-w-[45rem] rounded-md">
+          <div className={`flex gap-6 bg-[#c29651] max-w-[21rem] ${inView ? 'translate-x-0 opacity-100' : ' -translate-x-80 opacity-0'} transition-all duration-[1.5s] lg:gap-12 lg:max-w-[45rem] text-[18px] items-center p-4 rounded-md`}>
             <div className="font-bold w-16 lg:text-[20px]">
               <div>Withdraw</div>
               <Image

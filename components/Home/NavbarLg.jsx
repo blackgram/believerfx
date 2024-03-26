@@ -3,22 +3,24 @@ import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveMainMenu } from "@/Redux/features/activeMainMenuSlice";
+import { useRouter } from "next/router";
 
 const NavbarLg = () => {
   const dispatch = useDispatch();
+  const router = useRouter()
 
   const activeMenu = useSelector((state) => state.data.activeMainMenu.activeMenu);
 
 
   const handleMenu = (element) => {
     dispatch(setActiveMainMenu(element));
+    element === "Home" && router.push('/')
   };
 
   const menuItems = [
     { id: 1, title: "Home", active: activeMenu == "Home" ? true : false, onclick: handleMenu },
     { id: 2, title: "Markets", active: activeMenu == "Markets" ? true : false, onclick: handleMenu },
     { id: 3, title: "About Us", active: activeMenu == "About Us" ? true : false, onclick: handleMenu },
-    { id: 4, title: "FAQ", active: activeMenu == "FAQ" ? true : false, onclick: handleMenu },
     { id: 5, title: "Careers", active: activeMenu == "Careers" ? true : false, onclick: handleMenu },
     { id: 6, title: "Contact Us", active: activeMenu == "Contact Us" ? true : false, onclick: handleMenu },
   ];

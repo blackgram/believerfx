@@ -2,10 +2,17 @@ import React from "react";
 import { BiSolidMedal } from "react-icons/bi";
 import { MdPeopleAlt } from "react-icons/md";
 import { MdSecurity } from "react-icons/md";
+import { useInView } from "react-intersection-observer";
 
 const Provide = () => {
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
-    <div className="w-full lg:min-h-[80vh] bg-hero-pattern bg-no-repeat bg-cover flex flex-col items-center justify-center py-10 px-4">
+    <div ref={ref} className="w-full lg:min-h-[80vh] bg-hero-pattern bg-no-repeat bg-cover flex flex-col items-center justify-center py-10 px-4">
       <div className="text-center">
         <div className="text-primary font-bold text-[18px] lg:text-[20px] mb-3">
           We provide
@@ -20,7 +27,7 @@ const Provide = () => {
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px] rounded-lg flex flex-col items-center justify-center p-4">
+        <div className={`bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px] rounded-lg flex flex-col items-center justify-center p-4 ${inView? "opacity-100 scale-100" : "opacity-0 scale-50"} transition-all duration-1000`}>
           <div className="bg-black rounded-full lg:h-[80px] lg:w-[80px] flex items-center justify-center p-3 text-primary">
             <BiSolidMedal size={32} />
           </div>
@@ -33,7 +40,7 @@ const Provide = () => {
           </div>
         </div>
 
-        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px]  rounded-lg flex flex-col items-center justify-center p-4">
+        <div className={`bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px] rounded-lg flex flex-col items-center justify-center p-4 ${inView? "opacity-100 scale-100" : "opacity-0 scale-50"} transition-all duration-1000`}>
           <div className="bg-black rounded-full p-3 text-primary lg:h-[80px] lg:w-[80px] flex items-center justify-center">
             <MdPeopleAlt size={32} />
           </div>
@@ -45,7 +52,7 @@ const Provide = () => {
             Successful traders carefully manage their capital,
           </div>
         </div>
-        <div className="bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px]  rounded-lg flex flex-col items-center justify-center p-4">
+        <div className={`bg-nb3 hover:bg-primary text-ash hover:text-black max-w-[300px] lg:max-w-[416px] lg:h-[300px] rounded-lg flex flex-col items-center justify-center p-4 ${inView? "opacity-100 scale-100" : "opacity-0 scale-50"} transition-all duration-1000`}>
           <div className="bg-black rounded-full p-3 text-primary lg:h-[80px] lg:w-[80px] flex items-center justify-center">
             <MdSecurity size={32} />
           </div>
