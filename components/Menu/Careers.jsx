@@ -31,6 +31,7 @@ const Careers = () => {
           {jobs.map((job) => (
             <JobCard
               key={job.id}
+              id={job.id}
               role={job.role}
               description={`${job.description.slice(0, descLength)}...`}
               type={job.type}

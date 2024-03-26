@@ -14,7 +14,7 @@ const NavbarLg = () => {
 
   const handleMenu = (element) => {
     dispatch(setActiveMainMenu(element));
-    element === "Home" && router.push('/')
+    router.push('/')
   };
 
   const menuItems = [
