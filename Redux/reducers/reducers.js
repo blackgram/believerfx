@@ -5,6 +5,7 @@ import { activeDashSlice } from "../features/activeDashSlice";
 import { screenSizeSlice } from "../features/screenSizeSlice";
 import { activeMainMenuSlice } from "../features/activeMainMenuSlice";
 import { marketNewsSlice } from "../features/marketNewsSlice";
+import { pageLoadingSlice } from "../features/pageLoadingSlice";
 
 
 export const rootReducer = combineReducers({
@@ -14,4 +15,5 @@ export const rootReducer = combineReducers({
     screenSize: screenSizeSlice.reducer,
     activeMainMenu: activeMainMenuSlice.reducer,
     marketNews: marketNewsSlice.reducer,
+    pageLoading: pageLoadingSlice.reducer,
 })

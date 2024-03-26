@@ -4,11 +4,13 @@ import { FaArrowRight, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveMainMenu } from "@/Redux/features/activeMainMenuSlice";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const dispatch = useDispatch();
+  const router = useRouter()
 
   const activeMenu = useSelector((state) => state.data.activeMainMenu.activeMenu);
 
@@ -16,6 +18,7 @@ const Navbar = () => {
   const handleMenu = (element) => {
     dispatch(setActiveMainMenu(element));
     setShowDropdown(false)
+    router.push('/')
   };
 
   const menuItems = [

@@ -2,23 +2,52 @@ import HomePage from "@/components/Home/HomePage";
 import ContactUs from "@/components/Menu/ContactUs";
 import Markets from "@/components/Menu/Markets";
 import TradingViewTickerTape from "@/components/TradingViewTickerTape";
-import {
-  setLoadingMarketdata,
-  setMarketData,
-} from "@/Redux/features/marketNewsSlice";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Header, Footer } from "../components/Home";
-import hardMarketData from "@/components/Menu/Data";
 import Careers from "@/components/Menu/Careers";
+import { useInView } from "react-intersection-observer";
+import { FaArrowCircleUp } from "react-icons/fa";
+import ScrollToTop from "@/components/ScrollToTop";
+import LoadingScreen from "@/components/LoadingScreen";
+import { setPageLoading } from "@/Redux/features/pageLoadingSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
 
+  const pageloading = useSelector(
+    (state) => state.data.pageLoading.pageLoading
+  );
+
   const activeMenu = useSelector(
     (state) => state.data.activeMainMenu.activeMenu
   );
-  const marketData = useSelector((state) => state.data.marketNews.marketData);
+
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      dispatch(setPageLoading(false))
+    }, 2000);
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowScrollToTop(true);
+    } else {
+      setShowScrollToTop(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   {
     /*News Api*/
@@ -78,12 +107,19 @@ const Home = () => {
   }
 
   return (
-    <div className="font-poppins overflow-hidden bg-black min-h-full">
-      <Header />
-      {componentTorender}
-      {console.log(activeMenu)}
-      <Footer cta={true} />
-      <TradingViewTickerTape display="down" />
+    <div className="transition-all duration-300">
+      {pageloading ? (
+        <LoadingScreen />
+      ) : (
+        <div className="font-poppins overflow-hidden bg-black min-h-full">
+          <Header />
+          {componentTorender}
+          {console.log(activeMenu)}
+          <Footer cta={true} />
+          <ScrollToTop scroll={showScrollToTop} />
+          <TradingViewTickerTape display="down" />
+        </div>
+      )}
     </div>
   );
 };
