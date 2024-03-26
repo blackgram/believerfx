@@ -22,7 +22,7 @@ const Careers = () => {
         <div className=" max-w-[600px] text-center p-11">
           <div className="text-white text-[30px] font-bold ">Apply Today</div>
           <div className=" text-ash mt-5 ">
-            We're constantly on the search for expertise to improve our trading
+            We&apos;re constantly on the search for expertise to improve our trading
             platform. <span className="text-primary">Bfx</span> is an equal
             opportunity employer.
           </div>
@@ -30,7 +30,7 @@ const Careers = () => {
         <div className="w-full pt-10 pb-10 lg:pb-56 flex items-center justify-center flex-wrap gap-8 ">
           {jobs.map((job) => (
             <JobCard
-              id={job.id}
+              key={job.id}
               role={job.role}
               description={`${job.description.slice(0, descLength)}...`}
               type={job.type}
@@ -57,8 +57,8 @@ const Careers = () => {
             <div className="text-[14px] lg:text-[16px] text-center hover:text-black">
               To apply for the position, simply visit our careers page on our
               website or send your resume and cover letter to our designated
-              email address. We're excited to learn more about your skills and
-              experience and why you're interested in joining our team.
+              email address. We&apos;re excited to learn more about your skills and
+              experience and why you&apos;re interested in joining our team.
             </div>
           </div>
 
@@ -70,11 +70,11 @@ const Careers = () => {
               Assessment
             </div>
             <div className=" text-[14px] lg:text-[16px] text-center">
-              Once we receive your application, we'll review it carefully to
-              determine if you're a good fit for the role. If your application
-              meets our initial criteria, we'll invite you to complete
+              Once we receive your application, we&apos;ll review it carefully to
+              determine if you&apos;re a good fit for the role. If your application
+              meets our initial criteria, we&apos;ll invite you to complete
               assessments tailored to the position. These assessments help us
-              assess your skills and abilities and ensure you're a strong
+              assess your skills and abilities and ensure you&apos;re a strong
               candidate for the role.
             </div>
           </div>
@@ -86,9 +86,9 @@ const Careers = () => {
               Interview
             </div>
             <div className=" text-[14px] lg:text-[16px] text-center">
-              Congratulations! You've successfully passed the assessment stage.
-              Now, it's time for us to get to know you better. We'll schedule
-              one or more interviews where you'll have the opportunity to meet
+              Congratulations! You&apos;ve successfully passed the assessment stage.
+              Now, it&apos;s time for us to get to know you better. We&apos;ll schedule
+              one or more interviews where you&apos;ll have the opportunity to meet
               with members of our team. This is your chance to showcase your
               qualifications, experience, and personality, and to learn more
               about the role and our company culture.

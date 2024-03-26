@@ -44,7 +44,7 @@ const JobPage = () => {
             <div className=" mt-6  mb-10">
               BFX is a cutting-edge technology company specializing in trading
               solutions. We are committed to innovation and excellence, pushing
-              the boundaries of what's possible in the Trading Industry
+              the boundaries of what&apos;s possible in the Trading Industry
             </div>
 
             <div className=" font-bold text-2xl text-white">

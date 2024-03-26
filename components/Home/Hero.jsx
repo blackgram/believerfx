@@ -23,7 +23,7 @@ const Hero = () => {
             Exchange with a single platform
           </div>
           <Link href="/Login">
-            <div className="text-black font-bold flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary leading-7 lg:h-[54px] lg:w-[210px] lg:mt-10 transition-all transition-transform duration-500 ease-in-out close hover:bg-secondary hover:scale-105 ">
+            <div className="text-black font-bold flex items-center justify-center gap-1 border-solid border-1 border-primary rounded-lg p-1 bg-primary leading-7 lg:h-[54px] lg:w-[210px] lg:mt-10 transition-all duration-500 ease-in-out close hover:bg-secondary hover:scale-105 ">
               <div>Start Trading</div>
               <div>
                 <FaArrowTrendUp />
