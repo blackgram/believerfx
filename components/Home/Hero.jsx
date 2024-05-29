@@ -32,7 +32,7 @@ const Hero = () => {
           </Link>
         </div>
         <div className="py-5 px-2 md:max-w-[450px] md:w-full ">
-          <Image src={heroImage} width={800} height={800} alt=""  />
+          <Image src={heroImage} width={800} height={800} alt="" className="" />
         </div>
         <div className="glowing "/>
       </div>

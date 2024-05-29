@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 import { BiSolidMedal } from "react-icons/bi";
 import { MdPeopleAlt } from "react-icons/md";
 import { MdSecurity } from "react-icons/md";
@@ -19,7 +20,7 @@ const Provide = () => {
         </div>
         <div className="text-white font-bold text-[24px] lg:text-[30px] mb-3">
           Join a community of over{" "}
-          <span className="text-secondary">100,000</span> traders
+          <span className="text-secondary">{inView && <CountUp start={0} end={100000} duration={3.5} />}</span> traders
         </div>
         <div className="text-[16px] lg:text-[18px] lg:max-w-[615px] text-ash mb-3">
           Trading is the art and science of buying and selling financial

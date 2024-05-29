@@ -11,6 +11,7 @@ import { FaArrowCircleUp } from "react-icons/fa";
 import ScrollToTop from "@/components/ScrollToTop";
 import LoadingScreen from "@/components/LoadingScreen";
 import { setPageLoading } from "@/Redux/features/pageLoadingSlice";
+import AboutUs from "@/components/Menu/AboutUs";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,14 @@ const Home = () => {
 
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "//code.tidio.co/bl8lst3mzry7cfc2njvpiiitgfpspdlb.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+  }, []);
 
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
@@ -79,12 +88,13 @@ const Home = () => {
   //         console.error("Error fetching data. Status:", response.status);
   //       }
   //     } catch (error) {
-  //       console.error(error);
+  //       console.error(error); 
   //     }
   //   };
 
   //   fetchData();
   // }, []);
+
 
   let componentTorender;
 
@@ -98,13 +108,22 @@ const Home = () => {
     case "Markets":
       componentTorender = <Markets />;
       break;
-    case "Careers" || "About Us":
+    case "About Us":
+      componentTorender = <AboutUs />;
+      break;
+    case "Careers":
       componentTorender = <Careers />;
       break;
     default:
       componentTorender = <HomePage />;
       break;
   }
+
+  let [cta, setCta] = useState(true)
+  useEffect(() => {
+    componentTorender === "About Us" && setCta(false)
+
+  }, [componentTorender])
 
   return (
     <div className="transition-all duration-300">
@@ -115,7 +134,7 @@ const Home = () => {
           <Header />
           {componentTorender}
           {console.log(activeMenu)}
-          <Footer cta={true} />
+          <Footer cta={cta} />
           <ScrollToTop scroll={showScrollToTop} />
           <TradingViewTickerTape display="down" />
         </div>

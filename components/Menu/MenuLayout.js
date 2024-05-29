@@ -14,7 +14,7 @@ const MenuLayout = ({back, children}) => {
   back? backLink = back : backLink = "Home";
 
   return (
-    <div className="min-h-screen pt-[6rem]">
+    <div className="min-h-screen pt-[6rem] xl:pt-[5rem]">
       <div className="text-white p-[4rem] w-full bg-forex bg-cover bg-center ">
         <div className="text-[36px] font-bold pb-2">{activeMenu}</div>
         <div className="flex gap-2 font-semibold">
