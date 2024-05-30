@@ -57,7 +57,7 @@ const Footer = (props) => {
             Contact Us
           </div>
           <div>
-            <Link href="/">support@beleiversfx.com</Link>
+            <Link href="/">support@believersfx.com</Link>
           </div>
           <div>
             <Link href="/">+1 (347) 674-7180</Link>
@@ -81,7 +81,7 @@ const Footer = (props) => {
 
       <div className="h-[1px] w-[53rem] lg:w-[53rem] bg-white " />
 
-      <div className="flex flex-col md:flex-row md:justify-between md:w-full md:px-12 items-center justify-center gap-4 py-5">
+      {/* <div className="flex flex-col md:flex-row md:justify-between md:w-full md:px-12 items-center justify-center gap-4 py-5">
         <div className="flex items-center justify-center gap-4 text-white">
           <div className="bg-nb3 rounded-lg w-[36px] h-[36px] flex items-center justify-center">
             <Link href="/">
@@ -100,7 +100,7 @@ const Footer = (props) => {
           </div>
         </div>
         <div>Copyright @2024 Believers FX Profit</div>
-      </div>
+      </div> */}
     </div>
   );
 };

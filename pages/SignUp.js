@@ -16,6 +16,7 @@ import { BarLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import { doc, setDoc } from "firebase/firestore";
+import ReactFlagsSelect from "react-flags-select";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -26,6 +27,8 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [leverage, setLeverage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [subscription, setSubscription] = useState("");
+  const [country, setCountry] = useState("US")
 
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.data.user.isLoading);
@@ -33,7 +36,8 @@ const SignUp = () => {
 
   const router = useRouter();
 
-  const options = [
+
+  const leverageOptions = [
     { value: "1.20", label: "1.20" },
     { value: "1.25", label: "1.25" },
     { value: "1.33", label: "1.33" },
@@ -43,9 +47,20 @@ const SignUp = () => {
     { value: "1.400", label: "1.400" },
     { value: "1.500", label: "1.500" },
   ];
+
+  const SubOptions = [
+    {value: "starter", label: "Starter"},
+    {value: "silver", label: "Silver"},
+    {value: "gold", label: "Gold"},
+  ]
+
   const handleSelectChange = (selectedOption) => {
     setLeverage(selectedOption.value);
   };
+
+  const handleSubscription = (selectedOption) => {
+    setSubscription(selectedOption.value)
+  }
 
   const addUserToFirestore = async (
     uid,
@@ -209,6 +224,11 @@ const SignUp = () => {
                 onChange={(e) => handleInputChange(e, setUsername)}
               />
             </div>
+
+            <div className="">
+              <ReactFlagsSelect selected={country} onSelect={setCountry} placeholder="Select your Country" className="text-black w-full" searchable/>
+            </div>
+            
             <div className="">
               <div className="mb-1">Phone Number</div>
               <InputBtn
@@ -220,7 +240,16 @@ const SignUp = () => {
             </div>
             <div className="">
               <Select
-                options={options}
+                options={SubOptions}
+                className="text-black w-full"
+                onChange={handleSelectChange}
+                value={subscription.value}
+                placeholder="Select Plan"
+              />
+            </div>
+            <div className="">
+              <Select
+                options={leverageOptions}
                 className="text-black w-full"
                 onChange={handleSelectChange}
                 value={leverage.value}

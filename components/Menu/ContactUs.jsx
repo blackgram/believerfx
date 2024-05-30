@@ -2,6 +2,7 @@ import React from "react";
 import MenuLayout from "./MenuLayout";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
 const ContactUs = () => {
 
@@ -29,6 +30,12 @@ const ContactUs = () => {
                   <FaPhoneAlt />
                 </div>
                 <div>(+1) 425 26 2628</div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-primary rounded-full p-2 text-black text-[20px]">
+                <FaLocationDot />
+                </div>
+                <div>11 Wall St, New York, NY 10005</div>
               </div>
             </div>
 
@@ -91,7 +98,7 @@ const ContactUs = () => {
         </div>
         <div className="w-full h-[20rem] px-5 lg:px-[7rem] mb-5 lg:mb-[10rem] rounded-full">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12617.160599957399!2d-122.4148166!3d37.75979430000001!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1710175737177!5m2!1sen!2sng"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.471537925831!2d-74.010775!3d40.707634999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1721b556e9%3A0x326f0128a0f35c86!2s11%20Wall%20St%2C%20New%20York%2C%20NY%2010005%2C%20USA!5e0!3m2!1sen!2sng!4v1717082898959!5m2!1sen!2sng"
             width="100%"
             height="100%"
             style={{ border: "0", borderRadius: '10px' }}
