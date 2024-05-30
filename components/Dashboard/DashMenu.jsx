@@ -18,7 +18,7 @@ import { auth } from "../firebaseConfig";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 // import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import { setShowMenu } from "@/Redux/features/menuSlice";
 import Popup from "./Popup";
@@ -59,9 +59,7 @@ const DashMenu = () => {
     };
   }, [dropdownRef]);
 
-
   const [modal, setModal] = useState(false);
-
 
   const handleUnauthorizedPage = () => {
     setModal(!modal);
@@ -193,6 +191,41 @@ const DashMenu = () => {
               {/* <div className="w-full h-[2px] bg-ash" /> */}
             </div>
           ))}
+          <div
+            className={`modal transition-all ease-in-out duration-1000 w-[100vw] h-[100vh] ${
+              modal
+                ? " fixed top-0 left-0 right-0 bottom-0 z-40 opacity-100 scale-100"
+                : " hidden invisible opacity-0 scale-50"
+            } `}
+          >
+            <div
+              onclick={handleUnauthorizedPage}
+              className="bg-[#313131cc] w-[100vw] h-[100vh] fixed top-0 left-0 right-0 bottom-0 z-40"
+            />
+
+            <div
+              className={` ${
+                modal ? " scale-100" : " scale-50"
+              } transition-all duration-500 centered z-50 bg-nb3 flex text-white flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]`}
+            >
+              <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
+                <div>Account Inactive</div>
+                <div
+                  className="text-[30px] text-primary cursor-pointer "
+                  onClick={handleUnauthorizedPage}
+                >
+                  <IoClose />
+                </div>
+              </div>
+              <div className="p-2 text-justify">
+                Your Account is currently inactive, please head to the
+                &quot;funding&quot; page, select a plan and fund your account at
+                which point you will be able to access this page. If you are
+                experiencing any difficulties please contact{" "}
+                <span className="text-primary">support@believersfx.com</span>.
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         // for big screens
@@ -219,7 +252,6 @@ const DashMenu = () => {
                 item.active == true ? "text-primary" : "text-white"
               }`}
             >
-              
               <Link href={item.link}>
                 <div
                   className={`flex items-center gap-1 cursor-pointer ${
@@ -236,29 +268,42 @@ const DashMenu = () => {
           ))}
         </div>
       )}
-      
-        <div className={`modal transition-all ease-in-out duration-1000 w-[100vw] h-[100vh] ${ modal ? " fixed top-0 left-0 right-0 bottom-0 z-40 opacity-100 scale-100" : " hidden invisible opacity-0 scale-50"} `}>
-          <div onclick={handleUnauthorizedPage} className="bg-[#313131cc] w-[100vw] h-[100vh] fixed top-0 left-0 right-0 bottom-0 z-40" />
 
-          <div className={` ${modal? " scale-100" : " scale-50"} transition-all duration-500 centered z-50 bg-nb3 flex text-white flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]`}>
-            <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
-              <div>Account Inactive</div>
-              <div
-                className="text-[30px] text-primary cursor-pointer "
-                onClick={handleUnauthorizedPage}
-              >
-                <IoClose />
-              </div>
-            </div>
-            <div className="p-2 text-justify">
-              Your Account is currently inactive, please head to the
-              &quot;funding&quot; page, select a plan and fund your account at
-              which point you will be able to access this page. If you are
-              experiencing any difficulties please contact{" "}
-              <span className="text-primary">support@believersfx.com</span>.
+      <div
+        className={`modal transition-all ease-in-out duration-1000 w-[100vw] h-[100vh] ${
+          modal
+            ? " fixed top-0 left-0 right-0 bottom-0 z-40 opacity-100 scale-100"
+            : " hidden invisible opacity-0 scale-50"
+        } `}
+      >
+        <div
+          onclick={handleUnauthorizedPage}
+          className="bg-[#313131cc] w-[100vw] h-[100vh] fixed top-0 left-0 right-0 bottom-0 z-40"
+        />
+
+        <div
+          className={` ${
+            modal ? " scale-100" : " scale-50"
+          } transition-all duration-500 centered z-50 bg-nb3 flex text-white flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]`}
+        >
+          <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
+            <div>Account Inactive</div>
+            <div
+              className="text-[30px] text-primary cursor-pointer "
+              onClick={handleUnauthorizedPage}
+            >
+              <IoClose />
             </div>
           </div>
+          <div className="p-2 text-justify">
+            Your Account is currently inactive, please head to the
+            &quot;funding&quot; page, select a plan and fund your account at
+            which point you will be able to access this page. If you are
+            experiencing any difficulties please contact{" "}
+            <span className="text-primary">support@believersfx.com</span>.
+          </div>
         </div>
+      </div>
     </div>
   );
 };

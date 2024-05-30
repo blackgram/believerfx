@@ -20,7 +20,7 @@ const Support = () => {
             Anytime Support from our team
           </div>
           <div className="max-w-[500px] text-ash mt-2">
-            We're constantly improving our trading platform, trying to make it
+            We&apos;re constantly improving our trading platform, trying to make it
             the best on the market and we would love your feedback
           </div>
         </div>
@@ -39,7 +39,7 @@ const Support = () => {
 
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center text-center">
-            <div className="text-primary text-[20px]">FAQ's</div>
+            <div className="text-primary text-[20px]">FAQ&apos;s</div>
             <div className="text-[30px] font-bold ">
               Frequently Asked Questions
             </div>
