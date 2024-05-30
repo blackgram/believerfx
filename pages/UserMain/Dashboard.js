@@ -17,6 +17,7 @@ import Withdrawal from "@/components/Dashboard/Withdrawal";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Support from "@/components/Dashboard/Support";
+import TradingViewTickerTape from "@/components/TradingViewTickerTape";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -139,7 +140,8 @@ const Dashboard = () => {
       <ToastContainer />
       {componentToRender}
       <Footer />
-      {/* Footer and TradingViewTickerTape components go here */}
+      
+      <TradingViewTickerTape display='down' />
     </div>
   );
 };

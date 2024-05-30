@@ -1,37 +1,37 @@
 export const chartData = [
     {
         id: 1,
-        month: 'Jul',
+        month: 'Nov 2023',
         gain: 20,
     },
     {
         id: 2,
-        month: 'Aug',
+        month: 'Dec 2023',
         gain: 100,
     },
     {
         id: 3,
-        month: 'Sep',
+        month: 'January',
         gain: 207,
     },
     {
         id: 4,
-        month: 'Oct',
+        month: 'February',
         gain: 339,
     },
     {
         id: 5,
-        month: 'Nov',
+        month: 'March',
         gain: 592,
     },
     {
         id: 6,
-        month: 'Dec',
+        month: 'April',
         gain: 623,
     },
     {
         id: 7,
-        month: 'Jan 2024',
+        month: 'May',
         gain: 691,
     },
     {

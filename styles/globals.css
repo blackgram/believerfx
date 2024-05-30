@@ -91,6 +91,14 @@
   top: 20%;
   left: 35%;
   translate: transform(-50%, -50%);
+
+}
+@media (max-width: 768px) {
+  .centered {
+    top: 20%;
+  left: 10%;
+  translate: transform(-50%, -50%);
+  }
 }
 
 /* .tv-embed-widget-wrapper {

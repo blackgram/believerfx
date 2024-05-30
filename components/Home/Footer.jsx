@@ -57,17 +57,17 @@ const Footer = (props) => {
             Contact Us
           </div>
           <div>
-            <Link href="/">help@beleiversfx.com</Link>
+            <Link href="/">support@beleiversfx.com</Link>
           </div>
           <div>
-            <Link href="/">+44 1234567</Link>
+            <Link href="/">+1 (347) 674-7180</Link>
           </div>
         </div>
       </div>
 
       <div className="h-[1px] w-[21rem] lg:w-[53rem] bg-white " />
 
-      <div className="text-justify text-[12px] lg:text-[16px] max-w-[21rem] max-w-[40rem] lg:max-w-[53rem]">
+      <div className="text-justify text-[12px] lg:text-[16px] max-w-[21rem] md:max-w-[40rem] lg:max-w-[53rem]">
         <span className="font-bold">RISK WARNING: </span>
         The Financial Products offered by the company include Contracts for
         Difference (&apos;CFDs&apos;) and other complex financial products.
