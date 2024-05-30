@@ -60,23 +60,11 @@ const DashMenu = () => {
   }, [dropdownRef]);
 
 
+  const [modal, setModal] = useState(false);
+
+
   const handleUnauthorizedPage = () => {
-    toast.custom((t) => (
-      <div className=" bg-nb3 flex text-white flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]">
-        <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
-          <div>Account Inactive</div>
-          <div className="text-[30px] text-primary cursor-pointer " onClick={() => toast.dismiss(t.id)}>
-            <IoClose />
-          </div>
-        </div>
-        <div className="p-2 text-justify">
-          Your Account is currently inactive, please head to the
-          &quot;funding&quot; page, select a plan and fund your account at which
-          point you will be able to access this page. If you are experiencing
-          any difficulties please contact support.
-        </div>
-      </div>
-    ));
+    setModal(!modal);
   };
 
   const menuItems = [
@@ -144,15 +132,7 @@ const DashMenu = () => {
       link: "/UserMain/Dashboard",
       active: activeDashElement == "Withdrawal" ? true : false,
       icon: <MdCurrencyExchange />,
-      onclick: handleItemClick,
-    },
-    {
-      id: 7,
-      title: "Security",
-      link: "/UserMain/Dashboard",
-      active: activeDashElement == "Security" ? true : false,
-      icon: <MdOutlineReportGmailerrorred />,
-      onclick: handleItemClick,
+      onclick: handleUnauthorizedPage,
     },
     {
       id: 8,
@@ -256,6 +236,29 @@ const DashMenu = () => {
           ))}
         </div>
       )}
+      
+        <div className={`modal transition-all ease-in-out duration-1000 w-[100vw] h-[100vh] ${ modal ? " fixed top-0 left-0 right-0 bottom-0 z-40 opacity-100 scale-100" : " hidden invisible opacity-0 scale-50"} `}>
+          <div onclick={handleUnauthorizedPage} className="bg-[#313131cc] w-[100vw] h-[100vh] fixed top-0 left-0 right-0 bottom-0 z-40" />
+
+          <div className={` ${modal? " scale-100" : " scale-50"} transition-all duration-500 centered z-50 bg-nb3 flex text-white flex-col p-4 items-center justify-center shadow-sm shadow-primary max-w-[500px]`}>
+            <div className="w-full flex  justify-between items-center border-b-2 text-[20px] font-bold ">
+              <div>Account Inactive</div>
+              <div
+                className="text-[30px] text-primary cursor-pointer "
+                onClick={handleUnauthorizedPage}
+              >
+                <IoClose />
+              </div>
+            </div>
+            <div className="p-2 text-justify">
+              Your Account is currently inactive, please head to the
+              &quot;funding&quot; page, select a plan and fund your account at
+              which point you will be able to access this page. If you are
+              experiencing any difficulties please contact{" "}
+              <span className="text-primary">support@believersfx.com</span>.
+            </div>
+          </div>
+        </div>
     </div>
   );
 };

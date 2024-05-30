@@ -86,7 +86,12 @@
     inset 3.5em 0 0 0 rgb(245, 192, 109);  
 }
 
-
+.centered {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  translate: transform(-50%, -50%);
+}
 
 /* .tv-embed-widget-wrapper {
   max-width: 70%;

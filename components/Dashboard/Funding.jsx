@@ -154,9 +154,9 @@ const Funding = () => {
                   </div>
                   <div className=" text-justify lg:text-center text-ash pt-6">
                     Note: Once payment is complete, receipt of payment should be
-                    sent to support@forextprofit.com for confirmation and your
+                    sent to <span className="text-primary">support@believersfx.com</span> for confirmation and your
                     trading account will be funded after confirmation is
-                    complete (max 3hrs). <br /> Confirmation mail should include your user
+                    complete (max 1hr). <br /> Confirmation mail should include your user
                     id: <span className="text-secondary">{user.uid}</span>
                   </div>
                 </div>
